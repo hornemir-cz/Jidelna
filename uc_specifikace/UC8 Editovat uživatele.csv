@@ -1,0 +1,19 @@
+﻿Název;Editovat uživatele;;
+ID;UC8;;
+Popis;Cílem je umožnit administrátorovi editovat informace o uživatelích v systému;;
+Primární aktéři;Admin;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Admin je přihlášen do systému a zobrazuje seznam uživatelů;;
+Výstupní podmínky;Editace informací o uživateli v systému;;
+Scénář;Číslo;Aktér;Akce
+;1.;Admin;Vybere uživatele ze seznamu pro úpravu
+;2.;Admin;Edituje informace o uživateli (např. jméno, heslo, role atd.)
+;3.;Admin;Potvrdí provedené změny
+;4.;Systém;Aktualizuje informace o uživateli v systému
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;2a.;Admin;Pokud admin nezadá žádné změny nebo nevybere uživatele pro editaci
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Chyba při aktualizaci informací o uživateli
+;;;

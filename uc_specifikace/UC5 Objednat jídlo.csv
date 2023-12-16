@@ -1,0 +1,20 @@
+﻿Název;Objednat jídlo;;
+ID;UC5;;
+Popis;Cílem je umožnit uživateli objednat jídlo na konkrétní den v pracovním týdnu (po-pá);;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Uživatel je přihlášen do aplikace;;
+Výstupní podmínky;Zadání objednávky jídla na konkrétní den v pracovním týdnu;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Prohlíží pracovní týden (po-pá) v aplikaci
+;2.;Uživatel;Vybere konkrétní den v pracovním týdnu
+;3.;Systém;Zobrazí nabídku jídel pro vybraný den
+;4.;Uživatel;Vybere jídlo k objednání nebo se rozhodne neobjednat žádné jídlo
+;5.;Uživatel;Potvrdí objednávku jídla nebo zvolí možnost neobjednat žádné jídlo
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;5a.;Systém;Pokud selže uložení objednávky jídla (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Chyba při výběru jídla, zkuste to znovu.
+;;;

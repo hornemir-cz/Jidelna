@@ -1,0 +1,21 @@
+﻿Název;Přihlásit se;;
+ID;UC3;;
+Popis;Cílem je umožnit uživateli přihlásit se do aplikace;;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Aplikace je spuštěna;;
+Výstupní podmínky;Úspěšné přihlášení uživatele;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Spustí aplikaci
+;2.;Uživatel;Vybere možnost "Přihlásit se"
+;3.;Systém;Zobrazí přihlašovací formulář
+;4.;Uživatel;Vyplní přihlašovací údaje (uživatelské jméno a heslo)
+;5.;Systém;Zkontroluje přihlašovací údaje
+;6.;Systém;Potvrdí úspěšné přihlášení
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;5a.;Systém;Pokud jsou zadané neplatné přihlašovací údaje (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Nepltané přihlašovací údaje
+;;;

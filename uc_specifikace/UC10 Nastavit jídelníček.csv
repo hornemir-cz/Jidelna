@@ -1,0 +1,19 @@
+﻿Název;Nastavit jídelníček;;
+ID;UC10;;
+Popis;Cílem je umožnit administrátorovi nastavit jídelníček pro jednotlivé dny;;
+Primární aktéři;Admin;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Admin je přihlášen do systému a pracuje s funkcí nastavení jídelníčku;;
+Výstupní podmínky;Nastavení jídelníčku pro konkrétní dny;;
+Scénář;Číslo;Aktér;Akce
+;1.;Admin;Vybere konkrétní den pro úpravu jídelníčku
+;2.;Admin;Vyplní informace o dvou jídlech pro daný den
+;3.;Admin;Potvrdí provedené změny
+;4.;Systém;Aktualizuje jídelníček pro daný den s novými informacemi o jídlech
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;4a.;Admin;Pokud nastane chyba při aktualizaci informací (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Chyba při aktualizaci jídelníčku
+;;;

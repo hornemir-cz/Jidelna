@@ -1,0 +1,17 @@
+﻿Název;Zobrazit seznam uživatelů;;
+ID;UC7;;
+Popis;Cílem je umožnit administrátorovi zobrazit seznam uživatelů v systému;;
+Primární aktéři;Admin;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Admin je přihlášen do systému;;
+Výstupní podmínky;Zobrazení seznamu uživatelů v systému;;
+Scénář;Číslo;Aktér;Akce
+;1.;Admin;Otevře rozhraní pro správu uživatelů
+;2.;Systém;Zobrazí seznam uživatelů v systému
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;2a.;Systém;Pokud nejsou v systému žádní uživatelé (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;V systému nejsou žádní uživatelé
+;;;

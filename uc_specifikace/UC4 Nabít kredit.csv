@@ -1,0 +1,21 @@
+﻿Název;Nabít kredit;;
+ID;UC4;;
+Popis;Cílem je umožnit uživateli nabít kredit na svůj účet;;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Uživatel je přihlášen do aplikace;;
+Výstupní podmínky;Zvýšený kredit na účtu uživatele;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Otevře aplikaci a přihlásí se
+;2.;Uživatel;Vybere možnost "Nabít kredit"
+;3.;Systém;Zobrazí formulář pro nabití kreditu
+;4.;Uživatel;Vyplní hodnotu kreditu, kterou chce nabít
+;5.;Uživatel;Odešle požadavek na nabití kreditu
+;6.;Systém;Přičte vyplněnou hodnotu kreditu k existující hodnotě na účtu uživatele
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;4a.;Systém;Pokud uživatel zadá neplatnou hodnotu kreditu
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Neplatná hodnota kreditu
+;;;

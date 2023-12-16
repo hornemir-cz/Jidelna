@@ -1,0 +1,19 @@
+﻿Název;Mazat uživatele;;
+ID;UC9;;
+Popis;Cílem je umožnit administrátorovi odstranit uživatele ze systému;;
+Primární aktéři;Admin;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Admin je přihlášen do systému a zobrazuje seznam uživatelů;;
+Výstupní podmínky;Odstranění uživatele ze systému;;
+Scénář;Číslo;Aktér;Akce
+;1.;Admin;Vybere uživatele ze seznamu pro odstranění
+;2.;Admin;Potvrdí odstranění uživatele
+;3.;Systém;Odstraní uživatele ze systému
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;2a.;Admin;Pokud admin nevybere žádného uživatele pro odstranění - nic se nestane
+;3a.;Admin;Pokud se nepodaří smazat uživatele (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Chyba při odstraňování uživatele
+;;;

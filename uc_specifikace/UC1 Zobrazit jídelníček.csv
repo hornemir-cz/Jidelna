@@ -1,0 +1,19 @@
+﻿Název;Zobrazit jídelníček;;
+ID;UC1;;
+Popis;Cílem je umožnit uživateli zobrazit aktuální jídelníček;;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Uživateli se načte aplikace;;
+Výstupní podmínky;Zobrazení aktuálního jídelníčku na obrazovce;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Otevře aplikaci
+;2.;Uživatel;"Vybere možnost ""Zobrazit jídelníček"""
+;3.;Systém;Načte aktuální jídelníček z databáze
+;4.;Systém;Zobrazí na obrazovce aktuální nabídku jídel
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;3a.;Systém;Pokud se nepodaří načíst jídelníček z databáze (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;1.;Systém;Nepodařilo se načíst jídelníček z databáze
+;;;

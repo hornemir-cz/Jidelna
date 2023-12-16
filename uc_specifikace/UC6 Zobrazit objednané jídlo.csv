@@ -1,0 +1,17 @@
+﻿Název;Zobrazit objednané jídlo;;
+ID;UC6;;
+Popis;Cílem je umožnit uživateli zobrazit objednané jídlo na konkrétní den v pracovním týdnu (po-pá);;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Uživatel je přihlášen do aplikace;;
+Výstupní podmínky;Zobrazení objednaného jídla pro konkrétní den v pracovním týdnu;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Prohlíží pracovní týden (po-pá) v aplikaci
+;2.;Uživatel;Vybere konkrétní den v pracovním týdnu
+;3.;Systém;Zobrazí seznam objednaného jídla pro vybraný den
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;3a.;Systém;Pokud nejsou k dispozici žádné objednávky pro vybraný den -> Žádné objednávky -> vybraná možnost žádné jídlo (oběd odhlášen)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;;;
