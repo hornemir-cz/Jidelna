@@ -11,7 +11,7 @@ Scénář;Číslo;Aktér;Akce
 ;3.;Systém;Zobrazí seznam objednaného jídla pro vybraný den
 ;;;
 Alt. toky;Číslo;Aktér;Akce
-;3a.;Systém;Pokud nejsou k dispozici žádné objednávky pro vybraný den -> Žádné objednávky -> vybraná možnost žádné jídlo (oběd odhlášen)
+;3a.;Systém;Pokud nejsou k dispozici žádné objednávky pro vybraný den -> vybraná možnost (oběd odhlášen)
 ;;;
 Chybová hlášení (Ex);Číslo;Aktér;Znění
 ;;;
