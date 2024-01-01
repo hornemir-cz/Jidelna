@@ -1,6 +1,6 @@
 # Školní systém jídelny - Frontend Only
 
-Tento projekt je frontendová webová aplikace navržená pro správu jídelníčku ve školní jídelně. Umožňuje studentům prohlížet nabídku jídel, dobíjet kredit a objednávat jídla. Používá IndexedDB pro ukládání dat klienta.
+Tento projekt je frontendová webová aplikace navržená pro správu jídelníčku ve školní jídelně. Umožňuje studentům prohlížet nabídku jídel, dobíjet kredit a objednávat jídla. Aplikace používá IndexedDB pro ukládání dat klienta.
 
 ## Funkce
 
@@ -56,7 +56,6 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 1. **Stažení kódu:**
    ```bash
    git clone hornekm@kraken.pedf.cuni.cz:/home/hornekm/public_html/Jidelna.git
-   cd frontend-app
    ```
 
 2. **Otevření aplikace:**
@@ -75,7 +74,7 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 
 ## Příspěvky a vývoj
 
-Jsem otevřen různým příspěvkům a inovacím! Pokud chcete přispět k vývoji, prosím, vytvořte pull request a popište změny, které navrhujete.
+Jsem otevřen různým příspěvkům a inovacím! Pokud chcete přispět k vývoji, popište změny, které navrhujete a pošlete komentář.
 
 ## Autor
 
