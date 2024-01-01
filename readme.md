@@ -19,6 +19,29 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 
 ![UseCase Diagram](/img/usecase.svg)
 
+## Textová specifikace
+
+![UseCase Diagram](/img/ucs/USc-1.png)
+
+![UseCase Diagram](/img/ucs/USc-2.png)
+
+![UseCase Diagram](/img/ucs/USc-3.png)
+
+![UseCase Diagram](/img/ucs/USc-4.png)
+
+![UseCase Diagram](/img/ucs/USc-5.png)
+
+![UseCase Diagram](/img/ucs/USc-6.png)
+
+![UseCase Diagram](/img/ucs/USc-7.png)
+
+![UseCase Diagram](/img/ucs/USc-8.png)
+
+![UseCase Diagram](/img/ucs/USc-9.png)
+
+![UseCase Diagram](/img/ucs/USc-10.png)
+
+
 ## Class Diagram
 
 ![Class Diagram](/img/class.svg)
@@ -60,4 +83,4 @@ Jsem otevřen různým příspěvkům a inovacím! Pokud chcete přispět k výv
 
 ## Licence
 
-Vytvořeno v rámci studija na PedF UK
+Vytvořeno v rámci studia na PedF UK
