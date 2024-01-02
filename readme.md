@@ -13,7 +13,7 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 
 ## Grafický návrh
 
-![Layout](/img/layout.png)
+![Layout](/img/layout.gif)
 
 ## UseCase Diagram
 
