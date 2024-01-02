@@ -41,7 +41,7 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 
 ![UseCase Diagram](/img/ucs/USc-10.png)
 
-
+git
 ## Class Diagram
 
 ![Class Diagram](/img/class.svg)
@@ -56,7 +56,6 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 1. **Stažení kódu:**
    ```bash
    git clone hornekm@kraken.pedf.cuni.cz:/home/hornekm/public_html/Jidelna.git
-   cd frontend-app
    ```
 
 2. **Otevření aplikace:**
