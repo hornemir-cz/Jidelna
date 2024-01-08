@@ -1,6 +1,6 @@
 # Školní systém jídelny - Frontend Only
 
-Tento projekt je frontendová webová aplikace navržená pro správu jídelníčku ve školní jídelně. Umožňuje studentům prohlížet nabídku jídel, dobíjet kredit a objednávat jídla. Používá IndexedDB pro ukládání dat klienta.
+Tento projekt je frontendová webová aplikace navržená pro správu jídelníčku ve školní jídelně. Umožňuje studentům prohlížet nabídku jídel, dobíjet kredit a objednávat jídla. Aplikace používá IndexedDB pro ukládání dat klienta.
 
 ## Funkce
 
@@ -13,7 +13,7 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 
 ## Grafický návrh
 
-![Layout](/img/layout.png)
+![Layout](/img/layout.gif)
 
 ## UseCase Diagram
 
@@ -40,8 +40,7 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 ![UseCase Diagram](/img/ucs/USc-9.png)
 
 ![UseCase Diagram](/img/ucs/USc-10.png)
-
-git
+git 
 ## Class Diagram
 
 ![Class Diagram](/img/class.svg)
@@ -74,7 +73,7 @@ git
 
 ## Příspěvky a vývoj
 
-Jsem otevřen různým příspěvkům a inovacím! Pokud chcete přispět k vývoji, prosím, vytvořte pull request a popište změny, které navrhujete.
+Jsem otevřen různým příspěvkům a inovacím! Pokud chcete přispět k vývoji, popište změny, které navrhujete a pošlete komentář.
 
 ## Autor
 
