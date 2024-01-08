@@ -40,7 +40,7 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 ![UseCase Diagram](/img/ucs/USc-9.png)
 
 ![UseCase Diagram](/img/ucs/USc-10.png)
-git 
+
 ## Class Diagram
 
 ![Class Diagram](/img/class.svg)
