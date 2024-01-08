@@ -45,6 +45,17 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 
 ![Class Diagram](/img/class.svg)
 
+## Architektura
+
+Pro vývoj mé aplikace jsem zvolil architekturu známou jako Model-View-Controller (MVC). Je to velice jednoduchý a snadno pochopitelný model. Kód se dá lehce upravovat díky přehledné struktuře. Jednoduše se dají přidávat i vedlejší potřebné třídy.
+
+Model je úložiště pro data a pravidla aplikace.
+View zobrazuje uživateli data z Modelu.
+Controller řídí uživatelovy akce a reakce aplikace.
+Ostatní třídou jsou podkategoriemi modelu (db).
+
+Díky použití tohoto přístupu jsem mohl pohodlně pracovat na různých částech aplikace zároveň. Celkově to přispělo k rychlejšímu vývoji nových funkcí a zlepšení aplikace.
+
 ## Použité technologie
 
 - **Frontend:** HTML, CSS, JavaScript
@@ -81,4 +92,4 @@ Jsem otevřen různým příspěvkům a inovacím! Pokud chcete přispět k výv
 
 ## Licence
 
-Vytvořeno v rámci studia na PedF UK
+Vytvořeno v rámci studia na PedF UK (2023/2024)
