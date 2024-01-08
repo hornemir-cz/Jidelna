@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/img/cookie.png" type="image/x-icon">
+    <title>Jídelna</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <h1>Jídelna</h1>
+        </a>
+        <a href="login.html">
+            <button type="button">
+                <h3>Přihlásit se</h3>
+            </button>
+        </a>        
+    </header>
+    <div class="content">        
+        <menu>
+            <div class="menu-item">
+                <a href="/" class="item">
+                    <img src="/img/menu-icons/calendar.png" alt="">
+                    <h5>Jídelníček</h5>
+                </a>           
+            </div>            
+        </menu>        
+        <div class="logreg">
+            <div id="logForm">
+                <div class="formular-log" id="formular-log">
+                    <h2>Přihlašování</h2>
+                    <input type="email" name="LogEmail" id="LogEmail" placeholder="e-mail">
+                    <input type="password" name="LogPasswd" id="LogPasswd" placeholder="heslo">
+                    <button type="button">
+                        <h4>Přihlásit</h4>
+                    </button>
+                </div>
+                <div class="space"></div>
+                <div class="log-regbutton">
+                    <button onclick="DisplayLog()" id="logbtn">
+                        <h3>Registrace</h3>
+                    </button>
+                </div>
+            </div>
+
+            <div id="regForm">
+                <div class="reg-logbutton">
+                    <button onclick="DisplayReg()" id="regbtn">
+                        <h3>Přihlašování</h3>
+                    </button>
+                </div>         
+                <div class="space"></div>   
+                <div class="formular-reg" id="formular-reg" >
+                    <h2>Registrace</h2>
+                    <input type="email" name="RegEmail" id="RegEmail" placeholder="e-mail">
+                    <input type="text" name="RegJmeno" id="RegJmeno" placeholder="jméno">
+                    <input type="text" name="RegPrijmeni" id="RegPrijmeni" placeholder="příjmení">
+                    <input type="password" name="RegPasswd" id="RegPasswd" placeholder="heslo">                
+                    <input type="password" name="RegPasswd2" id="RegPasswd2" placeholder="heslo znovu">
+                    <button type="button">
+                        <h4>Registrovat</h4>
+                    </button>
+                </div> 
+            </div>            
+        </div>
+    </div>
+    
+    <script src="logRegFormAnimation.js"></script>
+
+</body>
+</html>
