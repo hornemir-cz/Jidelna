@@ -1,14 +1,16 @@
-class User {
-
-    em = null;
-    jm = null;
-    pr = null;
-    hash = null;
-
-    constructor(em, jm, pr, hash) {
-        this.em = em;        
-        this.jm = jm;
-        this.pr = pr;
-        this.hash = hash;
+class User {    
+    constructor(email, jmeno, prijmeni, heslo) {
+      this.email = email;
+      this.jmeno = jmeno;
+      this.prijmeni = prijmeni;
+      this.heslo = heslo;
     }
-}
+  
+    static isValidPassword(pw1, pw2) {
+      return pw1 === pw2 && pw1.length >= 8;
+    }
+  
+    static isValidField(x) {
+      return x && x.length > 0;
+    }
+  }
