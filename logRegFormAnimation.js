@@ -4,7 +4,7 @@ const logForm = document.getElementById("logForm")
 const regForm = document.getElementById("regForm")
 
 function DisplayLog() {
-    if (regButton.style.display !== 'none') {
+    if (regButton.style.display !== "none") {
         logForm.style.display = "none"
         regForm.style.display = "flex"
 
@@ -15,7 +15,7 @@ function DisplayLog() {
 }
 
 function DisplayReg() {
-    if (logButton.style.display !== 'none') {
+    if (logButton.style.display !== "none") {
         logForm.style.display = "flex"
         regForm.style.display = "none"
     } else {        

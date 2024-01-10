@@ -1,0 +1,159 @@
+class MojeDB {
+    #db = null;
+    #verze = 1;
+    #nazevDB = "Users";
+    #nazevOsUsers = "Uzivatele";
+
+    constructor() {        
+    }
+
+    async pripojDb() {
+        const request = indexedDB.open(this.#nazevDB, this.#verze);
+        request.onupgradeneeded = (event) => {
+            console.log("upgraduji DB", event.oldVersion, event.target.result);
+            
+            let db = event.target.result;
+            switch(event.oldVersion) {
+                // db zatim neexistovala
+                case 0:
+                    const usersOS = db.createObjectStore(
+                        this.#nazevOsUsers,
+                        {keyPath: "id", autoIncrement: true}
+                    )
+                    usersOS.createIndex("prijmeniIndex", "prijmeni");
+            }
+        }
+        
+        /// cekat na vysledek Promise
+        this.#db = await this.reqPromHelper(request);
+        console.log("Po await ", this.#db);
+        /// ohlaseni udalosti
+        this.onDbPripojena();
+    }
+
+    reqPromHelper(pozadavek) {
+        return new Promise((resolve, reject) => {
+            pozadavek.onsuccess = () => {
+                resolve(pozadavek.result);
+            }
+            pozadavek.onerror = () => {
+                reject(pozadavek.error)
+            } 
+        })
+    }
+
+    passwdVal(pw1, pw2) {
+        if (pw1 !== pw2) {
+            return false;
+        }
+        if (pw1 < 8) {
+            return false;
+        }
+        return true;
+    }
+
+    lengthVal(x) {
+        if (x.length > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    hashPasswd(pw1) {
+
+    }
+
+    async ulozData(em, pw1, pw2, jm, pr) {        
+            if(this.lengthVal(em) && this.lengthVal(jm) && this.lengthVal(pr) && this.lengthVal(pw1) && this.lengthVal(pw2) && this.passwdVal(pw1, pw2)) {
+                const transUsers = this.#db.transaction(this.#nazevOsUsers, "readwrite");
+                transUsers.oncomplete = (ev) => {
+                    console.log("ulozData", "HOTOVO - transakce Users");                    
+                }
+                transUsers.onerror = (ev) => {
+                    console.log("ulozData", "CHYBA v transakci Users");
+                }
+                const osUsers = transUsers.objectStore(this.#nazevOsUsers);
+                
+                try {
+                    await this.reqPromHelper(osUsers.add({"email": em, "jmeno": jm, "prijmeni": pr, "heslo": pw1}));
+                    console.log("Data ulozena");
+                    this.onUsersZmena();
+                /// odchycení reject z Promise
+                }catch(err) {
+                    console.log("CHYBA", err);
+                }
+            }else {
+                //reject("Data nejsou validní.");
+                console.log("Data nesjou validní.");
+            }
+    }
+
+    vratUsers() {
+        const transUsers = this.#db.transaction(this.#nazevOsUsers, "readonly");
+        transUsers.oncomplete = (ev) => {
+            console.log("vratUsers", "HOTOVO - transakce Users");
+        }
+        transUsers.onerror = (ev) => {
+            console.log("vratUsers", "CHYBA", ev.target.error);
+        }
+        const osUsers = transUsers.objectStore(this.#nazevOsUsers);       
+        return this.reqPromHelper(osUsers.getAll());        
+    }
+
+    bindPripojDb(handler) {
+        this.onDbPripojena = handler;
+    }
+
+    bindZmenaDatUsers(handler) {
+        this.onUsersZmena = handler;
+    }
+
+    async aktualizujUzivatele(id, email, jmeno, prijmeni, heslo) {
+        const trans = this.#db.transaction(this.#nazevOsUsers, 'readwrite');
+        const store = trans.objectStore(this.#nazevOsUsers);
+    
+        const existujiciUzivatel = await this.reqPromHelper(store.get(id));
+        if (!existujiciUzivatel) {
+          console.log('Uživatel nenalezen.');
+          return;
+        }
+    
+        existujiciUzivatel.email = email;
+        existujiciUzivatel.jmeno = jmeno;
+        existujiciUzivatel.prijmeni = prijmeni;
+        existujiciUzivatel.heslo = heslo;
+    
+        store.put(existujiciUzivatel, id);
+        console.log('Uživatel aktualizován.');
+      }
+    
+      async smazUzivatele(id) {
+        const trans = this.#db.transaction(this.#nazevOsUsers, 'readwrite');
+        const store = trans.objectStore(this.#nazevOsUsers);
+    
+        const existujiciUzivatel = await this.reqPromHelper(store.get(id));
+        if (!existujiciUzivatel) {
+          console.log('Uživatel nenalezen.');
+          return;
+        }
+    
+        store.delete(id);
+        console.log('Uživatel smazán.');
+      }
+    
+      async ziskejUzivatele(id) {
+        const trans = this.#db.transaction(this.#nazevOsUsers, 'readonly');
+        const store = trans.objectStore(this.#nazevOsUsers);
+    
+        const existujiciUzivatel = await this.reqPromHelper(store.get(id));
+        if (!existujiciUzivatel) {
+          console.log('Uživatel nenalezen.');
+          return null;
+        }
+    
+        return existujiciUzivatel;
+      }
+}
+
+//const DB = new MojeDB(initHandler);
+const app = new Controller(new MojeDB(), new View());
