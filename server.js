@@ -10,8 +10,6 @@ const flash = require("express-flash")
 const session = require("express-session")
 const methodOverride = require("method-override")
 
-const users = []
-
 const initializePassport = require("./passport-config")
 
 initializePassport(
@@ -20,7 +18,9 @@ initializePassport(
     id => users.find(user => user.id === id)
 )
 
-app.set("view-engine")
+const users = []
+
+app.set("view-engine", "ejs")
 app.use(express.urlencoded({ extended: false}))
 app.use(flash())
 app.use(session({
@@ -86,4 +86,4 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }
 
-app.listen(3000)
+app.listen(3001)

@@ -1,0 +1,204 @@
+Název;Zobrazit jídelníček;;
+ID;UC1;;
+Popis;Cílem je umožnit uživateli zobrazit aktuální jídelníček;;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Uživateli se načte aplikace;;
+Výstupní podmínky;Zobrazení aktuálního jídelníčku na obrazovce;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Otevře aplikaci
+;2.;Uživatel;"Vybere možnost ""Zobrazit jídelníček"""
+;3.;Systém;Načte aktuální jídelníček z databáze
+;4.;Systém;Zobrazí na obrazovce aktuální nabídku jídel
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;3a.;Systém;Pokud se nepodaří načíst jídelníček z databáze (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;1.;Systém;Nepodařilo se načíst jídelníček z databáze
+;;;
+
+Název;Zaregistrovat se;;
+ID;UC2;;
+Popis;Cílem je umožnit uživateli zaregistrovat se v aplikaci;;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Uživatel spustí aplikaci;;
+Výstupní podmínky;Úspěšné zaregistrování uživatele;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Spustí aplikaci
+;2.;Uživatel;Vybere možnost "Zaregistrovat se"
+;3.;Systém;Zobrazí registrační formulář
+;4.;Uživatel;Vyplní registrační formulář
+;5.;Systém;Zkontroluje a uloží registrační údaje
+;6.;Systém;Potvrdí úspěšnou registraci
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;5a.;Systém;Pokud jsou zadané neplatné údaje (E1)
+;5b.;Systém;Pokud se nepodaří uložit nového uživatele (E2)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Neplatné údaje
+;E2;Systém;Aktuálně nejde vytvořit nový uživatel, zkuste to později.
+;;;
+
+Název;Přihlásit se;;
+ID;UC3;;
+Popis;Cílem je umožnit uživateli přihlásit se do aplikace;;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Aplikace je spuštěna;;
+Výstupní podmínky;Úspěšné přihlášení uživatele;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Spustí aplikaci
+;2.;Uživatel;Vybere možnost "Přihlásit se"
+;3.;Systém;Zobrazí přihlašovací formulář
+;4.;Uživatel;Vyplní přihlašovací údaje (uživatelské jméno a heslo)
+;5.;Systém;Zkontroluje přihlašovací údaje
+;6.;Systém;Potvrdí úspěšné přihlášení
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;5a.;Systém;Pokud jsou zadané neplatné přihlašovací údaje (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Nepltané přihlašovací údaje
+;;;
+
+Název;Nabít kredit;;
+ID;UC4;;
+Popis;Cílem je umožnit uživateli nabít kredit na svůj účet;;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Uživatel je přihlášen do aplikace;;
+Výstupní podmínky;Zvýšený kredit na účtu uživatele;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Otevře aplikaci a přihlásí se
+;2.;Uživatel;Vybere možnost "Nabít kredit"
+;3.;Systém;Zobrazí formulář pro nabití kreditu
+;4.;Uživatel;Vyplní hodnotu kreditu, kterou chce nabít
+;5.;Uživatel;Odešle požadavek na nabití kreditu
+;6.;Systém;Přičte vyplněnou hodnotu kreditu k existující hodnotě na účtu uživatele
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;4a.;Systém;Pokud uživatel zadá neplatnou hodnotu kreditu
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Neplatná hodnota kreditu
+;;;
+
+Název;Objednat jídlo;;
+ID;UC5;;
+Popis;Cílem je umožnit uživateli objednat jídlo na konkrétní den v pracovním týdnu (po-pá);;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Uživatel je přihlášen do aplikace;;
+Výstupní podmínky;Zadání objednávky jídla na konkrétní den v pracovním týdnu;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Prohlíží pracovní týden (po-pá) v aplikaci
+;2.;Uživatel;Vybere konkrétní den v pracovním týdnu
+;3.;Systém;Zobrazí nabídku jídel pro vybraný den
+;4.;Uživatel;Vybere jídlo k objednání nebo se rozhodne neobjednat žádné jídlo
+;5.;Uživatel;Potvrdí objednávku jídla nebo zvolí možnost neobjednat žádné jídlo
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;5a.;Systém;Pokud selže uložení objednávky jídla (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Chyba při výběru jídla, zkuste to znovu.
+;;;
+
+Název;Zobrazit objednané jídlo;;
+ID;UC6;;
+Popis;Cílem je umožnit uživateli zobrazit objednané jídlo na konkrétní den v pracovním týdnu (po-pá);;
+Primární aktéři;Uživatel;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Uživatel je přihlášen do aplikace;;
+Výstupní podmínky;Zobrazení objednaného jídla pro konkrétní den v pracovním týdnu;;
+Scénář;Číslo;Aktér;Akce
+;1.;Uživatel;Prohlíží pracovní týden (po-pá) v aplikaci
+;2.;Uživatel;Vybere konkrétní den v pracovním týdnu
+;3.;Systém;Zobrazí seznam objednaného jídla pro vybraný den
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;3a.;Systém;Pokud nejsou k dispozici žádné objednávky pro vybraný den -> vybraná možnost (oběd odhlášen)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;;;
+
+Název;Zobrazit seznam uživatelů;;
+ID;UC7;;
+Popis;Cílem je umožnit administrátorovi zobrazit seznam uživatelů v systému;;
+Primární aktéři;Admin;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Admin je přihlášen do systému;;
+Výstupní podmínky;Zobrazení seznamu uživatelů v systému;;
+Scénář;Číslo;Aktér;Akce
+;1.;Admin;Otevře rozhraní pro správu uživatelů
+;2.;Systém;Zobrazí seznam uživatelů v systému
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;2a.;Systém;Pokud nejsou v systému žádní uživatelé (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;V systému nejsou žádní uživatelé
+;;;
+
+Název;Editovat uživatele;;
+ID;UC8;;
+Popis;Cílem je umožnit administrátorovi editovat informace o uživatelích v systému;;
+Primární aktéři;Admin;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Admin je přihlášen do systému a zobrazuje seznam uživatelů;;
+Výstupní podmínky;Editace informací o uživateli v systému;;
+Scénář;Číslo;Aktér;Akce
+;1.;Admin;Vybere uživatele ze seznamu pro úpravu
+;2.;Admin;Edituje informace o uživateli (např. jméno, heslo, role atd.)
+;3.;Admin;Potvrdí provedené změny
+;4.;Systém;Aktualizuje informace o uživateli v systému
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;2a.;Admin;Pokud admin nezadá žádné změny nebo nevybere uživatele pro editaci
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Chyba při aktualizaci informací o uživateli
+;;;
+
+Název;Mazat uživatele;;
+ID;UC9;;
+Popis;Cílem je umožnit administrátorovi odstranit uživatele ze systému;;
+Primární aktéři;Admin;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Admin je přihlášen do systému a zobrazuje seznam uživatelů;;
+Výstupní podmínky;Odstranění uživatele ze systému;;
+Scénář;Číslo;Aktér;Akce
+;1.;Admin;Vybere uživatele ze seznamu pro odstranění
+;2.;Admin;Potvrdí odstranění uživatele
+;3.;Systém;Odstraní uživatele ze systému
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;2a.;Admin;Pokud admin nevybere žádného uživatele pro odstranění - nic se nestane
+;3a.;Admin;Pokud se nepodaří smazat uživatele (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Chyba při odstraňování uživatele
+;;;
+
+Název;Nastavit jídelníček;;
+ID;UC10;;
+Popis;Cílem je umožnit administrátorovi nastavit jídelníček pro jednotlivé dny;;
+Primární aktéři;Admin;;
+Sekundární aktéři;Systém;;
+Vstupní podmínky;Admin je přihlášen do systému a pracuje s funkcí nastavení jídelníčku;;
+Výstupní podmínky;Nastavení jídelníčku pro konkrétní dny;;
+Scénář;Číslo;Aktér;Akce
+;1.;Admin;Vybere konkrétní den pro úpravu jídelníčku
+;2.;Admin;Vyplní informace o dvou jídlech pro daný den
+;3.;Admin;Potvrdí provedené změny
+;4.;Systém;Aktualizuje jídelníček pro daný den s novými informacemi o jídlech
+;;;
+Alt. toky;Číslo;Aktér;Akce
+;4a.;Admin;Pokud nastane chyba při aktualizaci informací (E1)
+;;;
+Chybová hlášení (Ex);Číslo;Aktér;Znění
+;E1;Systém;Chyba při aktualizaci jídelníčku
+;;;

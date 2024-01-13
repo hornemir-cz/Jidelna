@@ -59,7 +59,7 @@ Díky použití tohoto přístupu jsem mohl pohodlně pracovat na různých čá
 ## Použité technologie
 
 - **Frontend:** HTML, CSS, JavaScript
-- **IndexedDB:** Pro ukládání dat klienta
+- **IndexedDB:** Pro ukládání dat klienta (nebo MongoDB) - otestuji
 
 ## Instalace a spuštění
 
@@ -70,6 +70,10 @@ Díky použití tohoto přístupu jsem mohl pohodlně pracovat na různých čá
 
 2. **Otevření aplikace:**
    - Otevřete soubor `index.html` ve vašem prohlížeči.
+      - Testuji NodeJS
+      ```bash
+      npm run devStart
+      ```
 
 ## Struktura adresářů
 
