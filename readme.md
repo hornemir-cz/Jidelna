@@ -1,6 +1,6 @@
 # Školní systém jídelny - Frontend Only
 
-Tento projekt je frontendová webová aplikace navržená pro správu jídelníčku ve školní jídelně. Umožňuje studentům prohlížet nabídku jídel, dobíjet kredit a objednávat jídla. Aplikace používá IndexedDB pro ukládání dat klienta.
+Tento projekt je frontendová webová aplikace navržená pro správu jídelníčku ve školní jídelně. Umožňuje studentům prohlížet nabídku jídel, dobíjet kredit a objednávat jídla. Aplikace používá IndexedDB (MongoDB) pro ukládání dat klienta.
 
 ## Funkce
 
@@ -13,37 +13,37 @@ Tento projekt je frontendová webová aplikace navržená pro správu jídelní�
 
 ## Grafický návrh
 
-![Layout](/img/layout.gif)
+![Layout](/_Specifikace/layout.gif)
 
 ## UseCase Diagram
 
-![UseCase Diagram](/img/usecase.svg)
+![UseCase Diagram](/_Specifikace/usecase.svg)
 
 ## Textová specifikace
 
-![UseCase Diagram](/img/ucs/USc-1.png)
+![UseCase Diagram](/_Specifikace/ucs/USc-1.png)
 
-![UseCase Diagram](/img/ucs/USc-2.png)
+![UseCase Diagram](/_Specifikace/ucs/USc-2.png)
 
-![UseCase Diagram](/img/ucs/USc-3.png)
+![UseCase Diagram](/_Specifikace/ucs/USc-3.png)
 
-![UseCase Diagram](/img/ucs/USc-4.png)
+![UseCase Diagram](/_Specifikace/ucs/USc-4.png)
 
-![UseCase Diagram](/img/ucs/USc-5.png)
+![UseCase Diagram](/_Specifikace/ucs/USc-5.png)
 
-![UseCase Diagram](/img/ucs/USc-6.png)
+![UseCase Diagram](/_Specifikace/ucs/USc-6.png)
 
-![UseCase Diagram](/img/ucs/USc-7.png)
+![UseCase Diagram](/_Specifikace/ucs/USc-7.png)
 
-![UseCase Diagram](/img/ucs/USc-8.png)
+![UseCase Diagram](/_Specifikace/ucs/USc-8.png)
 
-![UseCase Diagram](/img/ucs/USc-9.png)
+![UseCase Diagram](/_Specifikace/ucs/USc-9.png)
 
-![UseCase Diagram](/img/ucs/USc-10.png)
+![UseCase Diagram](/_Specifikace/ucs/USc-10.png)
 
 ## Class Diagram
 
-![Class Diagram](/img/class.svg)
+![Class Diagram](/_Specifikace/class.svg)
 
 ## Architektura
 

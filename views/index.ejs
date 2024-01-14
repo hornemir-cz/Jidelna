@@ -1,4 +1,6 @@
-<h1>Hello <%= name %></h1>
-<form action="/logout?_method=DELETE" method="POST">
-    <button type="submit">Odhlásit se</button>
-</form>
+<h2>Přehled jídel</h2>
+<div>
+  <% meals.forEach(meal => { %>
+    <img height="150" width="150" src="<%= meal.mealImagePath %>">
+  <% }) %>
+</div>

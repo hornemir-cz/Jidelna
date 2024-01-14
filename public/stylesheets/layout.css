@@ -1,0 +1,30 @@
+.filepond-item, .filepond--drip, .filepond--root, .filepond, .filepond--hopper, .filepond--file {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.filepond--item, .filepond--image-preview-wrapper, .filepond--file, .filepond--file-wrapper {
+    max-width: 350px;
+    max-height: 350px;
+}
+
+.filepond--file {
+    background-color: dimgrey;
+}
+
+.filepond--panel-center, .filepond--item-panel, .filepond--panel-bottom, .filepond--item-panel {
+    display: none;
+}
+
+.filepond--credits {
+    display: none;
+}
+
+.filepond--drop-label {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+
+  

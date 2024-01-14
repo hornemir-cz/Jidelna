@@ -1,0 +1,36 @@
+<div>
+    <label>Jídlo</label>
+    <input type="text" name="title" value="<%= meal.title %>">
+</div>
+<div>
+    <label>Typ strávníka</label>
+    <select name="userType">
+    <% userTypes.forEach(userType => { %>
+    <% if (userType.id === meal.userType) { %>
+        <option selected label="<%= userType.name %>" value="<%= userType.id %>">
+    <% } else { %>
+        <option label="<%= userType.name %>" value="<%= userType.id %>">
+    <% } %>
+    <% }) %>
+    </select>
+</div>
+<div>
+    <label>Datum</label>
+    <input type="date" name="date"
+        value="<%= meal.date == null ? '' : meal.date.toISOString().split("T")[0] %>">
+</div>
+<div>
+    <label>Počet porcí</label>
+    <input type="number" name="servingNumber" min="1" value="<%= meal.servingNumber %>">
+</div>
+</div>
+<div>
+    <label>Obrázek jídla</label>
+    <div class="filepond-item">
+        <input type="file" name="mealImageName" class="filepond">
+    </div>    
+</div>
+<div>
+    <label>Popisek</label>
+    <textarea name="description"><%= meal.description %></textarea>
+</div>

@@ -1,0 +1,12 @@
+<h2>Strávníci</h2>
+<form action="/users" method="GET">
+  <label>Jméno</label>
+  <input type="text" name="name" value="<%= searchOptions.name %>">
+  <button type="submit">Vyhledat</button>
+</form>
+<br>
+<% users.forEach(user => { %>
+  <div><%= user.fname %> <%= user.lname %></div>
+  <div><%= user.email %></div>
+  <br>
+<% }) %>

@@ -1,0 +1,21 @@
+<h2>Vyhledávání pokrmu</h2>
+<form action="/meals" method="GET">
+  <div>
+    <label>Název</label>
+    <input type="text" name="title" value="<%= searchOptions.title %>">
+  </div>
+  <div>
+    <label>Datum po</label>
+    <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
+  </div>
+  <div>
+    <label>Datum před</label>
+    <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
+  </div>
+  <button type="submit">Vyhledat</button>
+</form>
+<div>
+  <% meals.forEach(meal => { %>
+    <img height="150" width="150" src="<%= meal.mealImagePath %>">
+  <% }) %>
+</div>

@@ -1,0 +1,10 @@
+<h2>Typy strávníků</h2>
+<form action="/userTypes" method="GET">
+  <label>Název</label>
+  <input type="text" name="name" value="<%= searchOptions.name %>">
+  <button type="submit">Vyhledat</button>
+</form>
+<br>
+<% userTypes.forEach(userType => { %>
+  <div><%= userType.name %> [<%= userType.price %> Kč] - [<%= userType.servingPerUserType %> ks]</div>
+<% }) %>
