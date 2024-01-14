@@ -3,7 +3,7 @@ const router = express.Router()
 const UserType = require("../models/userType")
 const Meal = require("../models/meal")
 
-// All UserTypes Routy
+// Všechny routy pro uživatele
 router.get("/", async (req, res) => {
   let searchOptions = {}
   if (req.query.name != null && req.query.name !== "") {
@@ -20,12 +20,13 @@ router.get("/", async (req, res) => {
   }
 })
 
-// New UserType Routa
+
+// Nová routa pro vytvoření nového userType
 router.get("/new", (req, res) => {
   res.render("userTypes/new", { userType: new UserType() })
 })
 
-// Create UserType Routu
+// Vytvoření nového uživatele
 router.post("/", async (req, res) => {
   const userType = new UserType({
     name: req.body.name,
