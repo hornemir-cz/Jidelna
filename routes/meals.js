@@ -5,6 +5,7 @@ const path = require("path")
 const fs = require("fs")
 const Meal = require("../models/meal")
 const UserType = require("../models/userType")
+const { resolve } = require("node:path/posix")
 const uploadPath = path.join("public", Meal.coverImageBasePath)
 const imageMimeTypes = ["image/jpeg", "image/png", "images/gif"]
 const upload = multer({
@@ -45,6 +46,8 @@ router.get("/new", async (req, res) => {
 // Create Meal Route
 router.post("/", upload.single("cover"), async (req, res) => {
   const fileName = req.file != null ? req.file.filename : null
+  console.log("Tvoje mama " + req.file)
+  console.log(req.body)
   const meal = new Meal({
     title: req.body.title,
     userType: req.body.userType,
@@ -56,7 +59,7 @@ router.post("/", upload.single("cover"), async (req, res) => {
 
   try {
     const newMeal = await meal.save()
-    // res.redirect(`meals/${newMeal.id}`)
+    //res.redirect(`meals/${newMeal.id}`)
     res.redirect(`meals`)
   } catch {
     if (meal.coverImageName != null) {
@@ -75,8 +78,6 @@ function removeMealCover(fileName) {
 async function renderNewPage(res, meal, hasError = false) {
   try {
     const userTypes = await UserType.find({})
-    console.log(userTypes)
-    console.log(meal)
     const params = {
       userTypes: userTypes,
       meal: meal
