@@ -109,12 +109,12 @@ class MojeDB {
     }
 
     async aktualizujUzivatele(id, email, jmeno, prijmeni, heslo) {
-        const trans = this.#db.transaction(this.#nazevOsUsers, 'readwrite');
+        const trans = this.#db.transaction(this.#nazevOsUsers, "readwrite");
         const store = trans.objectStore(this.#nazevOsUsers);
     
         const existujiciUzivatel = await this.reqPromHelper(store.get(id));
         if (!existujiciUzivatel) {
-          console.log('Uživatel nenalezen.');
+          console.log("Uživatel nenalezen.");
           return;
         }
     
@@ -124,30 +124,30 @@ class MojeDB {
         existujiciUzivatel.heslo = heslo;
     
         store.put(existujiciUzivatel, id);
-        console.log('Uživatel aktualizován.');
+        console.log("Uživatel aktualizován.");
       }
     
       async smazUzivatele(id) {
-        const trans = this.#db.transaction(this.#nazevOsUsers, 'readwrite');
+        const trans = this.#db.transaction(this.#nazevOsUsers, "readwrite");
         const store = trans.objectStore(this.#nazevOsUsers);
     
         const existujiciUzivatel = await this.reqPromHelper(store.get(id));
         if (!existujiciUzivatel) {
-          console.log('Uživatel nenalezen.');
+          console.log("Uživatel nenalezen.");
           return;
         }
     
         store.delete(id);
-        console.log('Uživatel smazán.');
+        console.log("Uživatel smazán.");
       }
     
       async ziskejUzivatele(id) {
-        const trans = this.#db.transaction(this.#nazevOsUsers, 'readonly');
+        const trans = this.#db.transaction(this.#nazevOsUsers, "readonly");
         const store = trans.objectStore(this.#nazevOsUsers);
     
         const existujiciUzivatel = await this.reqPromHelper(store.get(id));
         if (!existujiciUzivatel) {
-          console.log('Uživatel nenalezen.');
+          console.log("Uživatel nenalezen.");
           return null;
         }
     

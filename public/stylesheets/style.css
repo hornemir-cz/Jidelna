@@ -1,0 +1,190 @@
+:root {
+    font-family: fantasy, "Courier New", Courier, monospace;
+    box-sizing: border-box;
+
+    --header: #31241E;
+    --body: #FFFAF2;
+    --menu: #553626;
+    --button: #884E24;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4 {    
+    margin: 1rem;
+    padding: 0 1rem;
+}
+
+h1 {
+    font-size: 4.5rem;
+    font-family: "Railey";
+
+}
+
+h2 {
+    font-size: 3rem;
+    font-family: "Aileron";
+}
+
+h3, input {
+    font-size: 2rem;    
+    font-family: "Poppins";
+}
+
+h4 {
+    font-size: 2rem;
+    font-family: "Poppins";
+    border: 1px solid var(--button);
+    border-radius: 1.5em;
+    background-color: var(--button);
+    color: var(--body);
+}
+
+h5 {
+    font-size: 1.5rem;    
+    font-family: "Poppins";
+    padding-left: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: var(--body);
+}
+
+
+header {
+    background-color: var(--header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+body {
+    background-color: var(--body);
+    background-image: url("/img/cookie.png");    
+    background-attachment: fixed;
+    background-origin: padding-box;
+    background-size: 200px;
+    background-repeat: repeat;
+}
+
+.content {
+    display: flex;
+}
+
+.logreg {
+    border: 1rem solid var(--header);
+}
+
+.logreg, #logForm, #regForm {
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;    
+    background-color: var(--body);
+    border-radius: 12rem;    
+    height: 100%;
+    transform: scale(0.8);
+}
+
+.formular, .formular-log, .formular-reg {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+#logForm {
+    display: flex;    
+}
+
+#regForm {
+    display: none;
+}
+
+.space {
+    width: 1rem;
+    height: 10rem;
+    background-color: var(--button);
+}
+
+.meal-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 10rem;
+    width: 100%;
+}
+
+.meal-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    border: 2rem solid var(--header) ;
+    border-radius: 1.5rem;
+    min-width: 30rem;
+    max-width: 30rem;
+    background-color: var(--body);
+    transform: scale(0.8);
+}
+
+menu {
+    display: block;
+    background-color: var(--menu);
+    height: 1080px;
+    width: max-content;
+    position: sticky;
+    top: 0;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    max-width: max-content;
+}
+
+img {    
+    width: 20rem;
+    border: 2px;
+}
+
+a > img{
+    width: 2.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+button, input{
+    border-radius: 1.5rem;
+    padding: 0 1rem 0 1rem;
+    place-items: center;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    
+}

@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const UserType = require("../models/userType")
+const Meal = require("../models/meal")
 
 // All UserTypes Routy
 router.get("/", async (req, res) => {
@@ -41,5 +42,62 @@ router.post("/", async (req, res) => {
     })
   }
 })
+
+router.get("/:id", async (req, res) => {
+  try {
+    const userType = await UserType.findById(req.params.id)
+    const meals = await Meal.find({ userType: userType.id }).limit(6).exec()
+    res.render("userTypes/show", {
+      userType: userType,
+      mealsByUserType: meals
+    })
+  } catch {
+    res.redirect("/")
+  }
+})
+
+router.get("/:id/edit", async (req, res) => {
+  try {
+    const userType = await UserType.findById(req.params.id)
+    res.render("userTypes/edit", { userType: userType })
+  } catch {
+    res.redirect("/userTypes")
+  }
+})
+
+router.put("/:id", async (req, res) => {
+  let userType
+  try {
+    userType = await UserType.findById(req.params.id)
+    userType.name = req.body.name
+    await userType.save()
+    res.redirect(`/userTypes/${userType.id}`)
+  } catch {
+    if (userType == null) {
+      res.redirect("/")
+    } else {
+      res.render("userTypes/edit", {
+        userType: userType,
+        errorMessage: "Chyba v úpravě Strávníka"
+      })
+    }
+  }
+})
+
+router.delete("/:id", async (req, res) => {
+  let userType
+  try {
+    userType = await UserType.findById(req.params.id)
+    await userType.remove()
+    res.redirect("/userTypes")
+  } catch {
+    if (userType == null) {
+      res.redirect("/")
+    } else {
+      res.redirect(`/userTypes/${userType.id}`)
+    }
+  }
+})
+
 
 module.exports = router

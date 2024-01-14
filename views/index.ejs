@@ -2,5 +2,6 @@
 <div>
   <% meals.forEach(meal => { %>
     <img height="150" width="150" src="<%= meal.coverImagePath %>">
+    <div><%= meal.title %></div>
   <% }) %>
 </div>
