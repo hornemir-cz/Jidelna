@@ -1,13 +1,17 @@
 <h2>Strávníci</h2>
 <form action="/users" method="GET">
-  <label>Jméno</label>
-  <input type="text" name="name" value="<%= searchOptions.name %>">
+  <label>Příjmení</label>
+  <input type="text" name="lname" value="<%= searchOptions.lname %>">
   <button type="submit">Vyhledat</button>
 </form>
 <br>
 <% users.forEach(user => { %>
   <div><%= user.fname %> <%= user.lname %></div>
   <div><%= user.email %></div>
-  <div>Kredit: <%= user.credit %></div>
+  <div>Kredit: <%= user.credit %> Kč</div>
+  <a href="/users/<%= user.id %>">Zobrazit</a>
+  <a href="/users/<%= user.id %>/edit">Upravit</a>
+  <%- include("../partials/deleteForm",
+              { url: `/users/${user.id}` }) %>
   <br>
 <% }) %>

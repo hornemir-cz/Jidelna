@@ -1,0 +1,18 @@
+<h2><%= user.fname %> <%= user.lname %></h2>
+<h3>E-mail:</h3>
+<div><%= user.email %></div>
+<h3>Kredit:</h3>
+<div><%= user.credit %> Kč</div>
+<br>
+<a href="/users/<%= user.id %>/edit">Edit</a>
+<%- include("../partials/deleteForm",
+            { url: `/users/${user.id}` }) %>
+<% if (mealsOrderByUser.length > 0) { %>
+  <h2>Jídla Strávníka</h2>
+  <% mealsOrderByUser.forEach(meal => { %>
+    <img height="150" width="150" src="<%= meal.coverImagePath %>">
+    <div><%= meal.title %></div>
+    <div><%= meal.formatDayOfWeek() %> - <%= meal.date.getDate() %>.<%= meal.date.getMonth() + 1 %>.<%= meal.date.getFullYear() %></div>
+    <div><%= meal.description %></div>
+  <% }) %>
+<% } %>

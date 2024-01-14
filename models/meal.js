@@ -41,5 +41,10 @@ mealSchema.virtual("coverImagePath").get(function() {
   }
 })
 
+mealSchema.methods.formatDayOfWeek = function () {
+  const daysOfWeek = ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota"]
+  return daysOfWeek[this.date.getDay()]
+}
+
 module.exports = mongoose.model("Meal", mealSchema)
 module.exports.coverImageBasePath = coverImageBasePath

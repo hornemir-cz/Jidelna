@@ -1,0 +1,6 @@
+<h2>Upravit Strávníka</h2>
+<form action="/users/<%= user.id %>?_method=PUT" method="POST">
+  <%- include("_form") %>
+  <a href="/users/<%= user.id %>">Zrušit</a>
+  <button type="submit">Upravit</button>
+</form>

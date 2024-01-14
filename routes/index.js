@@ -5,7 +5,7 @@ const Meal = require("../models/meal")
 router.get("/", async (req, res) => {
   let meals
   try {
-    meals = await Meal.find().sort({ date: "desc" }).limit(10).exec()
+    meals = await Meal.find().sort({ date: "asc" }).limit(10).exec()
   } catch {
     meals = []
   }

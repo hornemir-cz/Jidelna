@@ -3,5 +3,6 @@
   <% meals.forEach(meal => { %>
     <img height="150" width="150" src="<%= meal.coverImagePath %>">
     <div><%= meal.title %></div>
+    <div><%= meal.formatDayOfWeek() %> - <%= meal.date.getDate() %>.<%= meal.date.getMonth() + 1 %>.<%= meal.date.getFullYear() %></div>
   <% }) %>
 </div>

@@ -10,4 +10,4 @@
 //     imageResizeTargetHeight: 350
 //   })
   
-//   FilePond.parse(document.body);
+//   FilePond.parse(document.body)

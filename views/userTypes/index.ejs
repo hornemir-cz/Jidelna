@@ -7,8 +7,9 @@
 <br>
 <% userTypes.forEach(userType => { %>
   <div><%= userType.name %> [<%= userType.price %> Kč] - [<%= userType.servingPerUserType %> ks]</div>
-  <a href="/userTypes/<%= userType.id %>">View</a>
-  <a href="/userTypes/<%= userType.id %>/edit">Edit</a>
+  <a href="/userTypes/<%= userType.id %>">Zobrazit</a>
+  <a href="/userTypes/<%= userType.id %>/edit">Upravit</a>
   <%- include("../partials/deleteForm",
               { url: `/userTypes/${userType.id}` }) %>
+  <br>
 <% }) %>

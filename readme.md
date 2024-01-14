@@ -1,6 +1,6 @@
 # Školní systém jídelny - Frontend Only
 
-Tento projekt je frontendová webová aplikace navržená pro správu jídelníčku ve školní jídelně. Umožňuje studentům prohlížet nabídku jídel, dobíjet kredit a objednávat jídla. Aplikace používá IndexedDB (MongoDB) pro ukládání dat klienta.
+Tato webová aplikace je navrhnuta v prostředí Node.js a slouží pro správu jídelníčku ve školní jídelně. Umožňuje studentům prohlížet si nabídku pokrmů, dobíjet kredit a objednávat jídla. Aplikace používá IndexedDB/MongoDB pro ukládání dat klienta.
 
 ## Funkce
 
@@ -51,15 +51,15 @@ Pro vývoj mé aplikace jsem zvolil architekturu známou jako Model-View-Control
 
 Model je úložiště pro data a pravidla aplikace.
 View zobrazuje uživateli data z Modelu.
-Controller řídí uživatelovy akce a reakce aplikace.
-Ostatní třídou jsou podkategoriemi modelu (db).
+Controller/routes řídí uživatelovy akce a reakce aplikace.
+Ostatní třídy jsou podkategoriemi modelu (db).
 
 Díky použití tohoto přístupu jsem mohl pohodlně pracovat na různých částech aplikace zároveň. Celkově to přispělo k rychlejšímu vývoji nových funkcí a zlepšení aplikace.
 
 ## Použité technologie
 
 - **Frontend:** HTML, CSS, JavaScript
-- **IndexedDB:** Pro ukládání dat klienta (nebo MongoDB) - otestuji
+- **IndexedDB:** Pro ukládání dat klienta (nebo MongoDB)
 
 ## Instalace a spuštění
 
@@ -69,26 +69,38 @@ Díky použití tohoto přístupu jsem mohl pohodlně pracovat na různých čá
    ```
 
 2. **Otevření aplikace:**
-   - Otevřete soubor `index.html` ve vašem prohlížeči.
-      - Testuji NodeJS
-      ```bash
-      npm run devStart
-      ```
+   - Testuji NodeJS
+   ```bash
+   npm run devStart
+   ```
+   - musím si zažádat o otevřrní portu na Krakenu
 
-## Struktura adresářů
+## Struktura adresáře
 
-- `/css`: Obsahuje styly pro aplikaci.
-- `/js`: Obsahuje JavaScriptové soubory.
-    - `/js/models`: Modely pro aplikaci (např. `user.js`, `meal.js`)
-    - `/js/views`: Zobrazovací logika (např. `userView.js`, `mealView.js`)
-    - `/js/controllers`: Kontroléry pro řízení logiky aplikace (např. `userController.js`, `mealController.js`)
-    - `/js/models/db.js`: Obsahuje logiku pro práci s IndexedDB.
-    - `/js/app.js`: Spouštěcí soubor pro aplikaci, propojuje modely, views a controllery.
+- **models:** Datové modely pro aplikaci
+- **node_modules:** Instalované balíčky npm
+- **public:**  Viditelné položky
+  - **img:** Obrázky
+    - **meals:** Obrázky jídel
+    - **menu-icons:** Ikony pro menu.
+  - **javascripts:** JavaScriptové soubory pro frontend
+  - **stylesheets:** Stylovací soubory pro frontend
+- **routes:** Routy pro aplikaci
+- **views:** 
+  - **layouts:** Layouty pro pohledy
+  - **meals:** Pohledy specifické pro jídla
+  - **partials:** Pohledy používané v různých částech aplikace
+  - **users:** Pohledy specifické pro uživatele
+  - **userTypes:** Pohledy specifické pro typ uživatele
+- **_Materialy:** Prvopočátek webu
+- **_Specifikace:** Dokumentace
+  - **ucs:** Specifikace případů užití.
+  - **uc_specifikace:** Specifikace konkrétních případů užití.
 
 
 ## Příspěvky a vývoj
 
-Jsem otevřen různým příspěvkům a inovacím! Pokud chcete přispět k vývoji, popište změny, které navrhujete a pošlete komentář.
+Jsem otevřen různým příspěvkům a inovacím! Pokud chcete přispět k vývoji, popište změny, které navrhujete a pošlete na e-mail hornemir@gmail.com.
 
 ## Autor
 

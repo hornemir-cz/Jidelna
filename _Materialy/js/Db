@@ -1,18 +1,18 @@
 class MojeDB {
-    #db = null;
-    #verze = 1;
-    #nazevDB = "Users";
-    #nazevOsUsers = "Uzivatele";
+    #db = null
+    #verze = 1
+    #nazevDB = "Users"
+    #nazevOsUsers = "Uzivatele"
 
     constructor() {        
     }
 
     async pripojDb() {
-        const request = indexedDB.open(this.#nazevDB, this.#verze);
+        const request = indexedDB.open(this.#nazevDB, this.#verze)
         request.onupgradeneeded = (event) => {
-            console.log("upgraduji DB", event.oldVersion, event.target.result);
+            console.log("upgraduji DB", event.oldVersion, event.target.result)
             
-            let db = event.target.result;
+            let db = event.target.result
             switch(event.oldVersion) {
                 // db zatim neexistovala
                 case 0:
@@ -20,21 +20,21 @@ class MojeDB {
                         this.#nazevOsUsers,
                         {keyPath: "id", autoIncrement: true}
                     )
-                    usersOS.createIndex("prijmeniIndex", "prijmeni");
+                    usersOS.createIndex("prijmeniIndex", "prijmeni")
             }
         }
         
         /// cekat na vysledek Promise
-        this.#db = await this.reqPromHelper(request);
-        console.log("Po await ", this.#db);
+        this.#db = await this.reqPromHelper(request)
+        console.log("Po await ", this.#db)
         /// ohlaseni udalosti
-        this.onDbPripojena();
+        this.onDbPripojena()
     }
 
     reqPromHelper(pozadavek) {
         return new Promise((resolve, reject) => {
             pozadavek.onsuccess = () => {
-                resolve(pozadavek.result);
+                resolve(pozadavek.result)
             }
             pozadavek.onerror = () => {
                 reject(pozadavek.error)
@@ -44,19 +44,19 @@ class MojeDB {
 
     passwdVal(pw1, pw2) {
         if (pw1 !== pw2) {
-            return false;
+            return false
         }
         if (pw1 < 8) {
-            return false;
+            return false
         }
-        return true;
+        return true
     }
 
     lengthVal(x) {
         if (x.length > 0) {
-            return true;
+            return true
         }
-        return false;
+        return false
     }
 
     hashPasswd(pw1) {
@@ -65,95 +65,95 @@ class MojeDB {
 
     async ulozData(em, pw1, pw2, jm, pr) {        
             if(this.lengthVal(em) && this.lengthVal(jm) && this.lengthVal(pr) && this.lengthVal(pw1) && this.lengthVal(pw2) && this.passwdVal(pw1, pw2)) {
-                const transUsers = this.#db.transaction(this.#nazevOsUsers, "readwrite");
+                const transUsers = this.#db.transaction(this.#nazevOsUsers, "readwrite")
                 transUsers.oncomplete = (ev) => {
-                    console.log("ulozData", "HOTOVO - transakce Users");                    
+                    console.log("ulozData", "HOTOVO - transakce Users")                    
                 }
                 transUsers.onerror = (ev) => {
-                    console.log("ulozData", "CHYBA v transakci Users");
+                    console.log("ulozData", "CHYBA v transakci Users")
                 }
-                const osUsers = transUsers.objectStore(this.#nazevOsUsers);
+                const osUsers = transUsers.objectStore(this.#nazevOsUsers)
                 
                 try {
-                    await this.reqPromHelper(osUsers.add({"email": em, "jmeno": jm, "prijmeni": pr, "heslo": pw1}));
-                    console.log("Data ulozena");
-                    this.onUsersZmena();
+                    await this.reqPromHelper(osUsers.add({"email": em, "jmeno": jm, "prijmeni": pr, "heslo": pw1}))
+                    console.log("Data ulozena")
+                    this.onUsersZmena()
                 /// odchycení reject z Promise
                 }catch(err) {
-                    console.log("CHYBA", err);
+                    console.log("CHYBA", err)
                 }
             }else {
-                //reject("Data nejsou validní.");
-                console.log("Data nesjou validní.");
+                //reject("Data nejsou validní.")
+                console.log("Data nesjou validní.")
             }
     }
 
     vratUsers() {
-        const transUsers = this.#db.transaction(this.#nazevOsUsers, "readonly");
+        const transUsers = this.#db.transaction(this.#nazevOsUsers, "readonly")
         transUsers.oncomplete = (ev) => {
-            console.log("vratUsers", "HOTOVO - transakce Users");
+            console.log("vratUsers", "HOTOVO - transakce Users")
         }
         transUsers.onerror = (ev) => {
-            console.log("vratUsers", "CHYBA", ev.target.error);
+            console.log("vratUsers", "CHYBA", ev.target.error)
         }
-        const osUsers = transUsers.objectStore(this.#nazevOsUsers);       
-        return this.reqPromHelper(osUsers.getAll());        
+        const osUsers = transUsers.objectStore(this.#nazevOsUsers)       
+        return this.reqPromHelper(osUsers.getAll())        
     }
 
     bindPripojDb(handler) {
-        this.onDbPripojena = handler;
+        this.onDbPripojena = handler
     }
 
     bindZmenaDatUsers(handler) {
-        this.onUsersZmena = handler;
+        this.onUsersZmena = handler
     }
 
     async aktualizujUzivatele(id, email, jmeno, prijmeni, heslo) {
-        const trans = this.#db.transaction(this.#nazevOsUsers, "readwrite");
-        const store = trans.objectStore(this.#nazevOsUsers);
+        const trans = this.#db.transaction(this.#nazevOsUsers, "readwrite")
+        const store = trans.objectStore(this.#nazevOsUsers)
     
-        const existujiciUzivatel = await this.reqPromHelper(store.get(id));
+        const existujiciUzivatel = await this.reqPromHelper(store.get(id))
         if (!existujiciUzivatel) {
-          console.log("Uživatel nenalezen.");
-          return;
+          console.log("Uživatel nenalezen.")
+          return
         }
     
-        existujiciUzivatel.email = email;
-        existujiciUzivatel.jmeno = jmeno;
-        existujiciUzivatel.prijmeni = prijmeni;
-        existujiciUzivatel.heslo = heslo;
+        existujiciUzivatel.email = email
+        existujiciUzivatel.jmeno = jmeno
+        existujiciUzivatel.prijmeni = prijmeni
+        existujiciUzivatel.heslo = heslo
     
-        store.put(existujiciUzivatel, id);
-        console.log("Uživatel aktualizován.");
+        store.put(existujiciUzivatel, id)
+        console.log("Uživatel aktualizován.")
       }
     
       async smazUzivatele(id) {
-        const trans = this.#db.transaction(this.#nazevOsUsers, "readwrite");
-        const store = trans.objectStore(this.#nazevOsUsers);
+        const trans = this.#db.transaction(this.#nazevOsUsers, "readwrite")
+        const store = trans.objectStore(this.#nazevOsUsers)
     
-        const existujiciUzivatel = await this.reqPromHelper(store.get(id));
+        const existujiciUzivatel = await this.reqPromHelper(store.get(id))
         if (!existujiciUzivatel) {
-          console.log("Uživatel nenalezen.");
-          return;
+          console.log("Uživatel nenalezen.")
+          return
         }
     
-        store.delete(id);
-        console.log("Uživatel smazán.");
+        store.delete(id)
+        console.log("Uživatel smazán.")
       }
     
       async ziskejUzivatele(id) {
-        const trans = this.#db.transaction(this.#nazevOsUsers, "readonly");
-        const store = trans.objectStore(this.#nazevOsUsers);
+        const trans = this.#db.transaction(this.#nazevOsUsers, "readonly")
+        const store = trans.objectStore(this.#nazevOsUsers)
     
-        const existujiciUzivatel = await this.reqPromHelper(store.get(id));
+        const existujiciUzivatel = await this.reqPromHelper(store.get(id))
         if (!existujiciUzivatel) {
-          console.log("Uživatel nenalezen.");
-          return null;
+          console.log("Uživatel nenalezen.")
+          return null
         }
     
-        return existujiciUzivatel;
+        return existujiciUzivatel
       }
 }
 
-//const DB = new MojeDB(initHandler);
-const app = new Controller(new MojeDB(), new View());
+//const DB = new MojeDB(initHandler)
+const app = new Controller(new MojeDB(), new View())
