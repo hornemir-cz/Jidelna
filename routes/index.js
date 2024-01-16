@@ -4,8 +4,13 @@ const Meal = require("../models/meal")
 
 router.get("/", async (req, res) => {
   let meals
+  let datum = new Date()
   try {
-    meals = await Meal.find().sort({ date: "asc" }).limit(10).exec()
+    meals = await Meal.find({
+      date: { $gte: datum.setDate(datum.getDate()-1) }  // gte - větší rovno anglicky opak lte
+    })
+    .sort({ date: "asc" }).limit(10).exec()
+    console.log(datum)
   } catch {
     meals = []
   }

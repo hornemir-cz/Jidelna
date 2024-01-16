@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
     searchOptions.lname = new RegExp(req.query.lname, "i") // i - bez ohledu na velikost písmen (case-insensitive)
   }
   try {
-    const users = await User.find(searchOptions)
+    const users = await User.find(searchOptions).sort({lname: "asc", credit: "asc"})
     res.render("users/index", {
       users: users,
       searchOptions: req.query

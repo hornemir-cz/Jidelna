@@ -28,7 +28,7 @@ router.get("/", async (req, res) => {
     query = query.gte("date", req.query.publishedAfter)
   }
   try {
-    const meals = await query.exec()
+    const meals = await query.sort({ date: "asc" }).exec()
     res.render("meals/index", {
       meals: meals,
       searchOptions: req.query
@@ -46,8 +46,6 @@ router.get("/new", async (req, res) => {
 // Create Meal Route
 router.post("/", upload.single("cover"), async (req, res) => {
   const fileName = req.file != null ? req.file.filename : null
-  console.log("Tvoje mama " + req.file)
-  console.log(req.body)
   const meal = new Meal({
     title: req.body.title,
     userType: req.body.userType,
