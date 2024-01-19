@@ -16,26 +16,27 @@ const upload = multer({
 
 // All Meals Route
 router.get("/", async (req, res) => {
-  let query = Meal.find()
+  let query = Meal.find();
   if (req.query.title != null && req.query.title != "") {
-    query = query.regex("title", new RegExp(req.query.title, "i"))
+    query = query.regex("title", new RegExp(req.query.title, "i"));
   }
   if (req.query.publishedBefore != null && req.query.publishedBefore != "") {
-    query = query.lte("date", req.query.publishedBefore)
+    query = query.lte("date", req.query.publishedBefore);
   }
   if (req.query.publishedAfter != null && req.query.publishedAfter != "") {
-    query = query.gte("date", req.query.publishedAfter)
+    query = query.gte("date", req.query.publishedAfter);
   }
   try {
-    const meals = await query.sort({ date: "asc" }).exec()
+    const meals = await query.sort({ date: "asc" }).exec();
     res.render("meals/index", {
-      meals: meals,
+      meals: meals,  // Ensure that meals is passed correctly
       searchOptions: req.query
-    })
+    });
   } catch {
-    res.redirect("/")
+    res.redirect("/");
   }
-})
+});
+
 
 // New Meal Route
 router.get("/new", async (req, res) => {
