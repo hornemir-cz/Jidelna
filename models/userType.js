@@ -8,10 +8,6 @@ const UserTypeSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true
-  },
-  servingPerUserType: {
-    type: Number,
-    required: true
   }
 
 })

@@ -4,7 +4,7 @@ const User = require("../models/user")
 const bcrypt = require("bcrypt")
 const Meal = require("../models/meal")
 
-// Všechny routy pro uživatele
+// Hledání uživatelů
 router.get("/", async (req, res) => {
   let searchOptions = {}
   if (req.query.lname != null && req.query.lname !== "") {
@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
   }
 })
 
-// Nová routa pro vytvoření nového uživatele
+// Routa pro vytvoření nového uživatele
 router.get("/new", (req, res) => {
   res.render("users/new", { user: new User() })
 })
@@ -35,6 +35,7 @@ router.post("/", async (req, res) => {
     lname: req.body.lname,
     email: req.body.email,
     hash: hashedPasswd,
+    userType: req.body.userType,
     credit: req.body.credit
   })
   try {
@@ -49,6 +50,7 @@ router.post("/", async (req, res) => {
   }
 })
 
+// Výpis uživatelů
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
@@ -62,6 +64,7 @@ router.get("/:id", async (req, res) => {
   }
 })
 
+// Routa pro Edit uživatele
 router.get("/:id/edit", async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
@@ -71,12 +74,13 @@ router.get("/:id/edit", async (req, res) => {
   }
 })
 
+// Uložení úpravy uživatele
 router.put("/:id", async (req, res) => {
   let user
   try {
     user = await User.findById(req.params.id)
     user.lname = req.body.lname
-    await userType.save()
+    await user.save()
     res.redirect(`/users/${user.id}`)
   } catch {
     if (user == null) {
@@ -90,6 +94,7 @@ router.put("/:id", async (req, res) => {
   }
 })
 
+// Smazání uživatele
 router.delete("/:id", async (req, res) => {
   let user
   try {

@@ -31,7 +31,6 @@ router.post("/", async (req, res) => {
   const userType = new UserType({
     name: req.body.name,
     price: req.body.price,
-    servingPerUserType: req.body.servingPerUserType
   })
   try {
     const newUserType = await userType.save()
@@ -39,7 +38,7 @@ router.post("/", async (req, res) => {
   } catch {
     res.render("userTypes/new", {
       userType: userType,
-      errorMessage: "Chyba ve vytváření Strávníka"
+      errorMessage: "Chyba ve vytváření typu Strávníka"
     })
   }
 })

@@ -1,0 +1,24 @@
+<div>
+    <label>Typ strávníka</label>
+    <input type="text" name="name" value="<%= userType.name %>">
+</div>
+<div>
+    <label>Cena za porci</label>
+    <input type="number" name="price" value="<%= userType.price %>">
+</div>
+<div>
+    <label>Počet porcí</label>
+    <input type="number" name="servingPerUserType" value="<%= userType.servingPerUserType %>">
+</div>
+
+<!-- 
+    Search podle dne, zobrazí se tři jídla, u nich radio button, rovnou to bude edit režim, zaškrtne se možnost z databáze,
+    která byla vybraná nebo možnost null (4. položka odhlášeno)
+    možnost posouvat den buttony jako |<-|  |->|?
+
+    zjistit si jak se dělá vlastní radio button pomocí stylu (vlastní border na položku (modrý select třeba - ohraničení))
+
+    v search sekci bude vidět i aktuální kredit uživatele + přičítání a odečítání hodnoty podle zaškrtnutí
+    (radio button reakce - načte hodnoty)
+
+ -->

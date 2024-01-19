@@ -4,7 +4,6 @@ const multer = require("multer")
 const path = require("path")
 const fs = require("fs")
 const Meal = require("../models/meal")
-const UserType = require("../models/userType")
 const { resolve } = require("node:path/posix")
 const uploadPath = path.join("public", Meal.coverImageBasePath)
 const imageMimeTypes = ["image/jpeg", "image/png", "images/gif"]
@@ -48,7 +47,6 @@ router.post("/", upload.single("cover"), async (req, res) => {
   const fileName = req.file != null ? req.file.filename : null
   const meal = new Meal({
     title: req.body.title,
-    userType: req.body.userType,
     date: new Date(req.body.date),
     servingNumber: req.body.servingNumber,
     coverImageName: fileName,

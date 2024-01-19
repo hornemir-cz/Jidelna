@@ -14,7 +14,7 @@
     <title>Jídelna</title>
 </head>
 <body>
-    <%- include("../partials/header.ejs") %>
+    <%- include("../partials/header.ejs", { auth: auth }) %>
     <%- include("../partials/errorMessage.ejs") %>
     <%- body %>
 </body>
