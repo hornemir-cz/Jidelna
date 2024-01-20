@@ -130,6 +130,11 @@ div > div {
     margin-bottom: 20px;
 }
 
+.form-section.meal {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .form-section a {
     display: block;
     margin-bottom: 10px; 
@@ -177,12 +182,18 @@ div > div {
     background-color: var(--body);
     min-height: 300px;
     -webkit-text-stroke: thin;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .meal-image {
     width: 100%;
     height: auto;
+    max-width: 100%;
+    object-fit: cover; 
 }
+
 
 .meal-title {
     font-weight: bold;

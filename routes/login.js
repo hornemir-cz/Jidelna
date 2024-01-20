@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
 router.get('/login', (req, res) => {
-  res.render('login/index');
-});
+  res.render('login/index')
+})
 
-module.exports = router;
+module.exports = router

@@ -1,13 +1,17 @@
 <h2>Přehled jídel</h2>
 <div class="prehled-jidel">
   <% meals.forEach(meal => { %>
-    <div class="meal-item">
-      <img class="meal-image" src="<%= meal.coverImagePath %>" alt="<%= meal.title %>">
-      <div class="meal-title"><%= meal.title %></div>
-      <div class="meal-details">
-        <div>Počet porcí: <%= meal.portionCount %></div>
-        <div><%= meal.formatDayOfWeek() %> - <%= meal.date.getDate() %>.<%= meal.date.getMonth() + 1 %>.<%= meal.date.getFullYear() %></div>
-      </div>
-    </div>
+    <div>
+      <a href="/meals/<%= meal.id %>">    
+          <div class="meal-item">
+            <img class="meal-image" src="<%= meal.coverImagePath %>" alt="<%= meal.title %>" width="50%">
+            <div class="meal-title"><%= meal.title %></div>
+            <div class="meal-details">
+              <div>Počet porcí: <%= meal.servingNumber %></div>
+              <div><%= meal.formatDayOfWeek() %> - <%= meal.date.getDate() %>.<%= meal.date.getMonth() + 1 %>.<%= meal.date.getFullYear() %></div>
+            </div>
+          </div>
+        </a>
+   </div>  
   <% }) %>
 </div>

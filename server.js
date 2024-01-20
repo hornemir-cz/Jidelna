@@ -45,10 +45,20 @@ app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }))
 
 //Database connect
 const mongoose = require("mongoose")
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
-const db = mongoose.connection
-db.on("error", error => console.error(error))
-db.once("open", () => console.log("Mongoose DB připojena!"))
+try {
+  mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
+  const db = mongoose.connection
+  db.on("error", (error) => {    
+    throw new Error(
+      "Chyba při připojování k databázi\n" + 
+      "Nelze se připojit do databáze - zkontroluj (.env)\n")
+  })
+  db.once("open", () => {
+    console.log("Mongoose DB připojena!")
+  })
+} catch (error) {
+  console.error(error)
+}
 
 app.use("/", indexRouter)
 app.use("/userTypes", userTypeRouter)

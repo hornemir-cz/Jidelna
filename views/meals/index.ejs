@@ -15,14 +15,14 @@
   <button type="submit" class="form-submit">Vyhledat</button>
 </form>
 <br>
-<div class="prehled-jidel">
+<div class="form-section meal">
   <% meals.forEach(meal => { %>
     <a href="/meals/<%= meal.id %>">    
       <div class="meal-item">
         <img class="meal-image" src="<%= meal.coverImagePath %>" alt="<%= meal.title %>" width="50%">
         <div class="meal-title"><%= meal.title %></div>
         <div class="meal-details">
-          <div>Počet porcí: <%= meal.portionCount %></div>
+          <div>Počet porcí: <%= meal.servingNumber %></div>
           <div><%= meal.formatDayOfWeek() %> - <%= meal.date.getDate() %>.<%= meal.date.getMonth() + 1 %>.<%= meal.date.getFullYear() %></div>
         </div>
       </div>
