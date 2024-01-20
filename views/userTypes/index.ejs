@@ -1,15 +1,15 @@
 <h2>Typy strávníků</h2>
 <form action="/userTypes" method="GET">
-  <label>Název</label>
-  <input type="text" name="name" value="<%= searchOptions.name %>">
-  <button type="submit">Vyhledat</button>
+  <label for="name">Název</label>
+  <input type="text" id="name" name="name" value="<%= searchOptions.name %>">
+  <button type="submit" class="form-submit">Vyhledat</button>
 </form>
 <br>
 <% userTypes.forEach(userType => { %>
-  <div><%= userType.name %> - [<%= userType.price %> Kč]</div>
-  <a href="/userTypes/<%= userType.id %>">Zobrazit</a>
-  <a href="/userTypes/<%= userType.id %>/edit">Upravit</a>
-  <%- include("../partials/deleteForm",
-              { url: `/userTypes/${userType.id}` }) %>
-  <br>
+  <div>
+    <span><%= userType.name %></span> - [<%= userType.price %> Kč]
+    <a href="/userTypes/<%= userType.id %>" class="form-submit">Zobrazit</a>
+    <a href="/userTypes/<%= userType.id %>/edit" class="form-submit">Upravit</a>
+    <%- include("../partials/deleteForm", { url: `/userTypes/${userType.id}` }) %>
+  </div>
 <% }) %>

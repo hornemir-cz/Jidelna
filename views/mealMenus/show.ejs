@@ -1,5 +1,5 @@
 <h2><%= userType.name %></h2>
-<a href="/userTypes/<%= userType.id %>/edit">Edit</a>
+<a href="/userTypes/<%= userType.id %>/edit">Upravit</a>
 <%- include("../partials/deleteForm",
             { url: `/userTypes/${userType.id}` }) %>
 <% if (mealsByUserType.length > 0) { %>

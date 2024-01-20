@@ -3,63 +3,58 @@ const router = express.Router()
 const UserType = require("../models/userType")
 const Meal = require("../models/meal")
 
-// Všechny routy pro uživatele
+// Routy pro typy strávníků
 router.get("/", async (req, res) => {
   let searchOptions = {}
   if (req.query.name != null && req.query.name !== "") {
-    searchOptions.name = new RegExp(req.query.name, "i")  //i - bez ohledu na velikost písmen (case-insensitive)
+    searchOptions.name = new RegExp(req.query.name, "i") //i - (case-insensitive)
   }
   try {
     const userTypes = await UserType.find(searchOptions)
-    res.render("userTypes/index", {
-      userTypes: userTypes,
-      searchOptions: req.query
-    })
+    res.render("userTypes/index", { userTypes, searchOptions: req.query })
   } catch {
     res.redirect("/")
   }
 })
 
-
-// Nová routa pro vytvoření nového userType
+// Nový typ strávníka
 router.get("/new", (req, res) => {
   res.render("userTypes/new", { userType: new UserType() })
 })
 
-// Vytvoření nového uživatele
+// Vytvoření nového typu strávníka
 router.post("/", async (req, res) => {
   const userType = new UserType({
     name: req.body.name,
     price: req.body.price,
   })
   try {
-    const newUserType = await userType.save()
+    await userType.save()
     res.redirect(`userTypes`)
   } catch {
     res.render("userTypes/new", {
-      userType: userType,
+      userType,
       errorMessage: "Chyba ve vytváření typu Strávníka"
     })
   }
 })
 
+// Detail typu strávníka
 router.get("/:id", async (req, res) => {
   try {
     const userType = await UserType.findById(req.params.id)
     const meals = await Meal.find({ userType: userType.id }).limit(6).exec()
-    res.render("userTypes/show", {
-      userType: userType,
-      mealsByUserType: meals
-    })
+    res.render("userTypes/show", { userType, mealsByUserType: meals })
   } catch {
     res.redirect("/")
   }
 })
 
+// Úprava typu strávníka
 router.get("/:id/edit", async (req, res) => {
   try {
     const userType = await UserType.findById(req.params.id)
-    res.render("userTypes/edit", { userType: userType })
+    res.render("userTypes/edit", { userType })
   } catch {
     res.redirect("/userTypes")
   }
@@ -77,13 +72,14 @@ router.put("/:id", async (req, res) => {
       res.redirect("/")
     } else {
       res.render("userTypes/edit", {
-        userType: userType,
+        userType,
         errorMessage: "Chyba v úpravě Strávníka"
       })
     }
   }
 })
 
+// Smazání typu strávníka
 router.delete("/:id", async (req, res) => {
   let userType
   try {
@@ -98,6 +94,5 @@ router.delete("/:id", async (req, res) => {
     }
   }
 })
-
 
 module.exports = router

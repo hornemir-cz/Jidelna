@@ -4,18 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/stylesheets/layout.css">
-    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
     <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
     <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
     <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
-    <script defer src="/javascripts/fileUpload.js"></script>
+    <script defer src="/javascripts/fileUpload.js"></script> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <title>Jídelna</title>
 </head>
 <body>
-    <%- include("../partials/header.ejs", { auth: auth }) %>
-    <%- include("../partials/errorMessage.ejs") %>
-    <%- body %>
+    <div class="info-bar">        
+      <a href="/"><h1>Jídelna</h1></a>        
+        <%- include("../partials/errorMessage.ejs") %>
+    </div>
+    <div class="container">
+        <div class="header-container">
+            <%- include("../partials/header.ejs" ) %>
+        </div>
+        <div class="content">
+            <%- body %>
+        </div>
+    </div>
+    <div class="footer"></div>
 </body>
 </html>

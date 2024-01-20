@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
     .sort({ date: "asc" })
     .limit(10)
     .exec();
-    console.log(datum);
+    //console.log(datum);
   } catch (error) {
     console.error(error);
     meals = [];

@@ -12,13 +12,18 @@
     <label>Datum před</label>
     <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
   </div>
-  <button type="submit">Vyhledat</button>
+  <button type="submit" class="form-submit">Vyhledat</button>
 </form>
-<div>
+<br>
+<div class="prehled-jidel">
   <% meals.forEach(meal => { %>
-    <img height="150" width="150" src="<%= meal.coverImagePath %>">
-    <div><%= meal.title %></div>
-    <div>Počet porcí: <%= meal.servingNumber %></div>
-    <div><%= meal.formatDayOfWeek() %> - <%= meal.date.getDate() %>.<%= meal.date.getMonth() + 1 %>.<%= meal.date.getFullYear() %></div>
+    <div class="meal-item">
+      <img class="meal-image" src="<%= meal.coverImagePath %>" alt="<%= meal.title %>">
+      <div class="meal-title"><%= meal.title %></div>
+      <div class="meal-details">
+        <div>Počet porcí: <%= meal.portionCount %></div>
+        <div><%= meal.formatDayOfWeek() %> - <%= meal.date.getDate() %>.<%= meal.date.getMonth() + 1 %>.<%= meal.date.getFullYear() %></div>
+      </div>
+    </div>
   <% }) %>
 </div>

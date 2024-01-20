@@ -1,21 +1,22 @@
 <header>
   <nav>
-    <a href="/">Jídelna</a>
-    <ul>   
-      <% if (!auth) { %>        
-        <li><a href="/login">Přihlásit se</a></li>
-      <% } else if (isAdmin) { %>
-          <li><a href="/userTypes">Typy strávníků</a></li>
-          <li><a href="/userTypes/new">Přidat typ strávníka</a></li>
-          <li><a href="/users">Uživatelé</a></li>
-          <li><a href="/users/new">Přidat uživatele</a></li>
-          <li><a href="/meals">Jídla</a></li>
-          <li><a href="/meals/new">Přidat jídlo</a></li>          
-      <% } else { %>
-        <li><a href="/mealMenus">Jídelníček</a></li>
-        <br>
-        <li><a href="/logout">Odhlásit se</a></li>
-      <% } %>
-    </ul>
+      <ul>          
+          <% if (false) { %> <!-- Nahradit login checkem -->
+              <li><a href="/login">Přihlásit se</a></li>
+              <br>
+          <% } %>
+          <% if (true) { %> <!-- Nahradit admin checkem -->
+              <li><a href="/userTypes">Typy strávníků</a></li>
+              <li><a href="/userTypes/new">Přidat typ strávníka</a></li>
+              <li><a href="/users">Uživatelé</a></li>
+              <li><a href="/users/new">Přidat uživatele</a></li>
+              <li><a href="/meals">Jídla</a></li>
+              <li><a href="/meals/new">Přidat jídlo</a></li>
+          <% } else { %>
+              <li><a href="/mealMenus">Jídelníček</a></li>
+              <br>
+              <li><a href="/logout">Odhlásit se</a></li>
+          <% } %>
+      </ul>
   </nav>
 </header>

@@ -16,15 +16,6 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require("method-override")
-const { authMiddleware } = require('./routes/auth');
-
-
-const initializePassport = require('./passport-config')
-initializePassport(
-  passport,
-  email => User.findOne({ email: email }),
-  id => User.findById(id)
-)
 
 //Routy
 const indexRouter = require("./routes/index")
@@ -32,8 +23,7 @@ const userTypeRouter = require("./routes/userTypes")
 const mealRouter = require("./routes/meals")
 const mealMenuRouter = require("./routes/mealMenus")
 const userRouter = require("./routes/users")
-const auth = require('./routes/auth')
-const loginRouter = require('./routes/login')
+const loginRouter = require("./routes/login")
 
 //Settings
 app.set("view engine", "ejs")
@@ -52,8 +42,6 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
-passport.addMiddleware && passport.addMiddleware(app)
-app.use(authMiddleware)
 
 //Database connect
 const mongoose = require("mongoose")
@@ -67,6 +55,6 @@ app.use("/userTypes", userTypeRouter)
 app.use("/meals", mealRouter)
 app.use("/mealMenus", mealMenuRouter)
 app.use("/users", userRouter)
-app.use("/login", loginRouter, auth)
+app.use("/login", loginRouter)
 
 app.listen(process.env.PORT || 8080)

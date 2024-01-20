@@ -1,13 +1,5 @@
 <h2><%= userType.name %></h2>
-<a href="/userTypes/<%= userType.id %>/edit">Edit</a>
-<%- include("../partials/deleteForm",
-            { url: `/userTypes/${userType.id}` }) %>
-<% if (mealsByUserType.length > 0) { %>
-  <h2>Jídla podle typu strávníka</h2>
-  <% mealsByUserType.forEach(meal => { %>
-    <img height="150" width="150" src="<%= meal.coverImagePath %>">
-    <div><%= meal.title %></div>
-    <div>Počet porcí: <%= meal.servingNumber %></div>
-    <div><%= meal.description %></div>
-  <% }) %>
-<% } %>
+<div>Cena za porci jídla: <%= userType.price %> Kč</div>
+<a href="/userTypes/<%= userType.id %>/edit">Upravit</a>
+<br><br><br>
+<%- include("../partials/deleteForm", { url: `/userTypes/${userType.id}` }) %>
