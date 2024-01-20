@@ -8,7 +8,7 @@ const Meal = require("../models/meal");
 router.get("/", async (req, res) => {
   let searchOptions = {};
   if (req.query.lname != null && req.query.lname !== "") {
-    searchOptions.lname = new RegExp(req.query.lname, "i"); // i - bez ohledu na velikost písmen (case-insensitive)
+    searchOptions.lname = new RegExp(req.query.lname, "i");
   }
   try {
     const users = await User.find(searchOptions).sort({ lname: "asc", credit: "asc" });
@@ -55,7 +55,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Routa pro Edit uživatele
+// Routa pro úpravu uživatele
 router.get("/:id/edit", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -65,7 +65,7 @@ router.get("/:id/edit", async (req, res) => {
   }
 });
 
-// Uložení úpravy uživatele
+// Uložení úprav uživatele
 router.put("/:id", async (req, res) => {
   let user;
   try {
@@ -77,7 +77,7 @@ router.put("/:id", async (req, res) => {
     if (user == null) {
       res.redirect("/");
     } else {
-      res.render("users/edit", { user, errorMessage: "Chyba v úpravě Strávníka" });
+      res.render("users/edit", { user, errorMessage: "Chyba při uložení úprav uživatele" });
     }
   }
 });

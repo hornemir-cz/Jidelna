@@ -1,12 +1,12 @@
-<div class="user-details">
+<div class="form-section" class="user-details">
   <h2><%= user.fname %> <%= user.lname %></h2>
   <h3>E-mail:</h3>
-  <div><%= user.email %></div>
+  <div class="form-section"><%= user.email %></div>
   <h3>Kredit:</h3>
-  <div><%= user.credit %> Kč</div>
+  <div class="form-section"><%= user.credit %> Kč</div>
 </div>
 
-<div class="user-actions">
+<div class="form-section">
   <a href="/users/<%= user.id %>/edit">Upravit</a>
   <%- include("../partials/deleteForm", { url: `/users/${user.id}` }) %>
 </div>

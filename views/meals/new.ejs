@@ -1,6 +1,8 @@
 <h2>Nové jídlo</h2>
 <form action="/meals" method="POST" enctype="multipart/form-data">
   <%- include("_form") %>
-  <a href="/meals">Zrušit</a>
-  <button type="submit" class="form-submit">Přidat</button>
+  <div class="form-section">
+    <a href="/meals" class="form-cancel">Zrušit</a>
+    <button type="submit" class="form-submit">Přidat</button>
+  </div>  
 </form>

@@ -1,0 +1,15 @@
+
+<div class="form-section" style="text-align: center;">
+  <h2><%= meal.title %></h2>
+  <img style="width: 40%;" src="<%= meal.coverImagePath %>" alt="<%= meal.title %>">
+  <div class="form-section">
+    <a href="/meals/<%= meal.id %>/edit">Upravit</a>
+    <%- include('../partials/deleteForm', { url: `/meals/${meal.id}` }) %>
+  </div>
+</div>
+<div>
+  <div><%= meal.formatDayOfWeek() %> - <%= meal.date.getDate() %>.<%= meal.date.getMonth() + 1 %>.<%= meal.date.getFullYear() %></div>
+  <div>Počet porcí: <%= meal.servingNumber %></div>
+  <div>Popis:</div>
+  <div><%= meal.description %></div>
+</div>

@@ -1,6 +1,8 @@
 <h2>Upravit typ strávníka</h2>
 <form action="/userTypes/<%= userType.id %>?_method=PUT" method="POST">
   <%- include("_form") %>
-  <a href="/userTypes/<%= userType.id %>" class="form-cancel">Zrušit</a>
-  <button type="submit" class="form-submit" class="form-submit">Upravit</button>
+  <div class="form-section">
+    <a href="/userTypes/<%= userType.id %>" class="form-cancel">Zrušit</a>
+    <button type="submit" class="form-submit" class="form-submit">Upravit</button>
+  </div>
 </form>

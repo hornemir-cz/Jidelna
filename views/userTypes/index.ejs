@@ -6,7 +6,7 @@
 </form>
 <br>
 <% userTypes.forEach(userType => { %>
-  <div>
+  <div class="form-section">
     <span><%= userType.name %></span> - [<%= userType.price %> Kč]
     <a href="/userTypes/<%= userType.id %>" class="form-submit">Zobrazit</a>
     <a href="/userTypes/<%= userType.id %>/edit" class="form-submit">Upravit</a>

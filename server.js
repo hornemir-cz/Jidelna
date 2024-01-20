@@ -11,11 +11,11 @@ const express = require("express")
 const app = express()
 const expressLayouts = require("express-ejs-layouts")
 const bodyParser = require("body-parser")
-const bcrypt = require('bcrypt')
-const passport = require('passport')
-const flash = require('express-flash')
-const session = require('express-session')
 const methodOverride = require("method-override")
+// const bcrypt = require('bcrypt')
+// const passport = require('passport')
+// const flash = require('express-flash')
+// const session = require('express-session')
 
 //Routy
 const indexRouter = require("./routes/index")
@@ -23,7 +23,7 @@ const userTypeRouter = require("./routes/userTypes")
 const mealRouter = require("./routes/meals")
 const mealMenuRouter = require("./routes/mealMenus")
 const userRouter = require("./routes/users")
-const loginRouter = require("./routes/login")
+// const loginRouter = require("./routes/login")
 
 //Settings
 app.set("view engine", "ejs")
@@ -34,14 +34,14 @@ app.use(expressLayouts)
 app.use(methodOverride("_method"))
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }))
-app.use(flash())
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false
-}))
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(flash())
+// app.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: false
+// }))
+// app.use(passport.initialize())
+// app.use(passport.session())
 
 //Database connect
 const mongoose = require("mongoose")
@@ -55,6 +55,6 @@ app.use("/userTypes", userTypeRouter)
 app.use("/meals", mealRouter)
 app.use("/mealMenus", mealMenuRouter)
 app.use("/users", userRouter)
-app.use("/login", loginRouter)
+//app.use("/login", loginRouter)
 
 app.listen(process.env.PORT || 8080)

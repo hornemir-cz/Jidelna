@@ -1,14 +1,14 @@
 <h2>Vyhledávání pokrmu</h2>
 <form action="/meals" method="GET">
-  <div>
+  <div class="form-section">
     <label>Název</label>
     <input type="text" name="title" value="<%= searchOptions.title %>">
   </div>
-  <div>
+  <div class="form-section">
     <label>Datum po</label>
     <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
   </div>
-  <div>
+  <div class="form-section">
     <label>Datum před</label>
     <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
   </div>
@@ -17,13 +17,15 @@
 <br>
 <div class="prehled-jidel">
   <% meals.forEach(meal => { %>
-    <div class="meal-item">
-      <img class="meal-image" src="<%= meal.coverImagePath %>" alt="<%= meal.title %>">
-      <div class="meal-title"><%= meal.title %></div>
-      <div class="meal-details">
-        <div>Počet porcí: <%= meal.portionCount %></div>
-        <div><%= meal.formatDayOfWeek() %> - <%= meal.date.getDate() %>.<%= meal.date.getMonth() + 1 %>.<%= meal.date.getFullYear() %></div>
+    <a href="/meals/<%= meal.id %>">    
+      <div class="meal-item">
+        <img class="meal-image" src="<%= meal.coverImagePath %>" alt="<%= meal.title %>" width="50%">
+        <div class="meal-title"><%= meal.title %></div>
+        <div class="meal-details">
+          <div>Počet porcí: <%= meal.portionCount %></div>
+          <div><%= meal.formatDayOfWeek() %> - <%= meal.date.getDate() %>.<%= meal.date.getMonth() + 1 %>.<%= meal.date.getFullYear() %></div>
+        </div>
       </div>
-    </div>
+    </a>
   <% }) %>
 </div>

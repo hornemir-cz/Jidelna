@@ -1,5 +1,6 @@
 <h2><%= userType.name %></h2>
-<div>Cena za porci jídla: <%= userType.price %> Kč</div>
-<a href="/userTypes/<%= userType.id %>/edit">Upravit</a>
-<br><br><br>
+<div class="form-section">Cena za porci jídla: <%= userType.price %> Kč</div>
+<div class="form-section">
+    <a href="/userTypes/<%= userType.id %>/edit">Upravit</a>
+</div>
 <%- include("../partials/deleteForm", { url: `/userTypes/${userType.id}` }) %>

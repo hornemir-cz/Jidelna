@@ -1,0 +1,8 @@
+<h2 class="page-header">Upravit Jídlo</h2>
+<form action="/meals/<%= meal.id %>?_method=PUT" method="POST">
+  <%- include('_form') %>
+  <div class="form-section">
+    <a class="form-submit" href="/meals">Zrušit</a>
+    <button class="form-submit" type="submit">Upravit</button>
+  </div>
+</form>
