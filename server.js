@@ -16,6 +16,8 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require("method-override")
+const { authMiddleware } = require('./routes/auth');
+
 
 const initializePassport = require('./passport-config')
 initializePassport(
@@ -50,13 +52,8 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
-passport.addMiddleware && app.use(passport.addMiddleware)
-
-app.use((req, res, next) => {
-  res.locals.auth = req.isAuthenticated();
-  res.locals.isAdmin = req.isAuthenticated() && req.user && req.user.isAdmin;
-  next();
-});
+passport.addMiddleware && passport.addMiddleware(app)
+app.use(authMiddleware)
 
 //Database connect
 const mongoose = require("mongoose")
@@ -66,10 +63,10 @@ db.on("error", error => console.error(error))
 db.once("open", () => console.log("Mongoose DB připojena!"))
 
 app.use("/", indexRouter)
-app.use("/userTypes", auth, userTypeRouter)
-app.use("/meals", auth, mealRouter)
-app.use("/mealMenus", auth, mealMenuRouter)
-app.use("/users", auth, userRouter)
-app.use("/login", auth, loginRouter)
+app.use("/userTypes", userTypeRouter)
+app.use("/meals", mealRouter)
+app.use("/mealMenus", mealMenuRouter)
+app.use("/users", userRouter)
+app.use("/login", loginRouter, auth)
 
 app.listen(process.env.PORT || 8080)
