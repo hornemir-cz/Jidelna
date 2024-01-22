@@ -8,16 +8,24 @@ const Meal = require("../models/meal")
 // Hledání uživatelů
 router.get("/", async (req, res) => {
   let searchOptions = {}
-  if (req.query.lname != null && req.query.lname !== "") {
-    searchOptions.lname = new RegExp(req.query.lname, "i")
+
+  if (req.query.name != null && req.query.name !== "") {
+    const searchRegex = new RegExp(req.query.name, "i")
+    searchOptions.$or = [
+      { fname: searchRegex },
+      { lname: searchRegex }
+    ]
+  }  
+  if (req.query.userType != null && req.query.userType !== "") {
+    searchOptions.userType = req.query.userType
   }
+
   try {
     const users = await User.find(searchOptions)
-      .populate('userType') 
+      .populate('userType')
       .sort({ lname: "asc", credit: "asc" })
 
     const userTypes = await UserType.find({})
-    
     res.render("users/index", { users, userTypes, searchOptions: req.query })
   } catch (error) {
     console.error(error)

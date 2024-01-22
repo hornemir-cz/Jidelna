@@ -1,15 +1,15 @@
 <h2>Strávníci</h2>
 <form action="/users" method="GET">
   <div class="form-section">
-    <label for="lname">Příjmení</label>
-    <input type="text" id="lname" name="lname" value="<%= searchOptions.lname %>">
+    <label for="name">Jméno</label>
+    <input type="text" id="name" name="name" value="<%= searchOptions.name %>">
   </div>  
   <div class="form-section">
     <label for="userType">Typ Strávníka</label>
     <select id="userType" name="userType">
       <option value="">Všechny</option>
       <% userTypes.forEach(userType => { %>
-        <option value="<%= userType.id %>" <%= userType.id == searchOptions.userType ? 'selected' : '' %>>
+        <option value="<%= userType.id %>" <%= String(userType.id) === String(searchOptions.userType) ? 'selected' : '' %>>
           <%= userType.name %>
         </option>
       <% }) %>
