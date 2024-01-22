@@ -12,13 +12,23 @@ router.get("/", async (req, res) => {
     searchOptions.lname = new RegExp(req.query.lname, "i")
   }
   try {
-    const users = await User.find(searchOptions).sort({ lname: "asc", credit: "asc" })
-    res.render("users/index", { users, searchOptions: req.query })
+    const users = await User.find(searchOptions)
+      .populate('userType') 
+      .sort({ lname: "asc", credit: "asc" })
+
+    const userTypes = await UserType.find({})
+    
+    console.log("Users:", users) // Add this line
+    console.log("UserTypes:", userTypes) // Add this line
+    
+    res.render("users/index", { users, userTypes, searchOptions: req.query })
   } catch (error) {
     console.error(error)
     res.redirect("/")
   }
 })
+
+
 
 // Routa pro vytvoření nového uživatele
 router.get("/new", async (req, res) => {
@@ -48,10 +58,11 @@ router.post("/", async (req, res) => {
 // Výpis uživatelů
 router.get("/:id", async (req, res) => {
   try {
-    const user = await User.findById(req.params.id)
+    const user = await User.findById(req.params.id).populate("userType")
     const meals = await Meal.find({ user: user.id }).limit(6).exec()
     res.render("users/show", { user, mealsOrderByUser: meals })
-  } catch {
+  } catch (error) {
+    console.error(error)
     res.redirect("/")
   }
 })

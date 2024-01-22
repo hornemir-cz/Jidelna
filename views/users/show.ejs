@@ -2,6 +2,10 @@
   <h2><%= user.fname %> <%= user.lname %></h2>
   <h3>E-mail:</h3>
   <div class="form-section"><%= user.email %></div>
+  <h3>Typ Strávníka:</h3>
+  <div class="form-section">
+    <%= user.userType.name %> - Cena za porci: <%= user.userType.price %> Kč
+  </div>
   <h3>Kredit:</h3>
   <div class="form-section"><%= user.credit %> Kč</div>
 </div>

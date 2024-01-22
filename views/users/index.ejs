@@ -5,6 +5,17 @@
     <input type="text" id="lname" name="lname" value="<%= searchOptions.lname %>">
   </div>  
   <div class="form-section">
+    <label for="userType">Typ Strávníka</label>
+    <select id="userType" name="userType">
+      <option value="">Všechny</option>
+      <% userTypes.forEach(userType => { %>
+        <option value="<%= userType.id %>" <%= userType.id == searchOptions.userType ? 'selected' : '' %>>
+          <%= userType.name %>
+        </option>
+      <% }) %>
+    </select>    
+  </div>
+  <div class="form-section">
     <button type="submit" class="form-submit">Vyhledat</button>
   </div>
 </form>
@@ -13,6 +24,7 @@
   <div class="form-section">
     <div class="form-section"><%= user.fname %> <%= user.lname %></div>
     <div class="form-section"><%= user.email %></div>
+    <div class="form-section">Typ Strávníka: <%= user.userType.name %></div>
     <div class="form-section">Kredit: <%= user.credit %> Kč</div>
     <a href="/users/<%= user.id %>">Zobrazit</a>
     <a href="/users/<%= user.id %>/edit">Upravit</a>
