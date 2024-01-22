@@ -18,16 +18,12 @@ router.get("/", async (req, res) => {
 
     const userTypes = await UserType.find({})
     
-    console.log("Users:", users) // Add this line
-    console.log("UserTypes:", userTypes) // Add this line
-    
     res.render("users/index", { users, userTypes, searchOptions: req.query })
   } catch (error) {
     console.error(error)
     res.redirect("/")
   }
 })
-
 
 
 // Routa pro vytvoření nového uživatele
