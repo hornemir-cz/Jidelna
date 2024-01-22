@@ -15,6 +15,16 @@
     <input type="password" name="password" value="<%= user.password %>" required>
 </div>
 <div class="form-section">
+    <label for="userType">Typ strávníka</label>
+    <select id="userType" name="userType">
+        <% userTypes.forEach(userType => { %>
+            <option <%= userType.id === user.userType ? 'selected' : '' %> value="<%= userType.id %>">
+                <%= userType.name %>
+            </option>
+        <% }) %>
+    </select>
+</div>
+<div class="form-section">
     <label>Kredit</label>
     <input type="number" name="credit" value="<%= user.credit %>" required>
 </div>

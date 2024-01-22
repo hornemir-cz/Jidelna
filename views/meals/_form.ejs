@@ -4,17 +4,6 @@
 </div>
 
 <div class="form-section">
-    <label for="userType">Typ strávníka</label>
-    <select id="userType" name="userType">
-        <% userTypes.forEach(userType => { %>
-            <option <%= userType.id === meal.userType ? 'selected' : '' %> value="<%= userType.id %>">
-                <%= userType.name %>
-            </option>
-        <% }) %>
-    </select>
-</div>
-
-<div class="form-section">
     <label for="date">Datum</label>
     <input type="date" id="date" name="date" value="<%= meal.date ? meal.date.toISOString().split("T")[0] : '' %>">
 </div>

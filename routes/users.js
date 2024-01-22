@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const User = require("../models/user")
+const UserType = require("../models/userType")
 const bcrypt = require("bcrypt")
 const Meal = require("../models/meal")
 
@@ -20,8 +21,8 @@ router.get("/", async (req, res) => {
 })
 
 // Routa pro vytvoření nového uživatele
-router.get("/new", (req, res) => {
-  res.render("users/new", { user: new User() })
+router.get("/new", async (req, res) => {
+  renderNewUserPage(res, new User())
 })
 
 // Vytvoření nového uživatele
@@ -40,7 +41,7 @@ router.post("/", async (req, res) => {
     res.redirect("/users")
   } catch (error) {
     console.error(error)
-    res.render("users/new", { user, errorMessage: "Chyba při vytváření uživatele" })
+    renderNewUserPage(res, user, true)
   }
 })
 
@@ -97,5 +98,19 @@ router.delete("/:id", async (req, res) => {
     }
   }
 })
+
+async function renderNewUserPage(res, user, hasError = false) {
+  try {
+    const userTypes = await UserType.find({})
+    const params = {
+      userTypes: userTypes,
+      user: user,
+    }
+    if (hasError) params.errorMessage = 'Chyba při vytváření uživatele :cry:'
+    res.render('users/new', params)
+  } catch {
+    res.redirect('/users')
+  }
+}
 
 module.exports = router

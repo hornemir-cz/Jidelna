@@ -20,8 +20,13 @@ const UserSchema = new mongoose.Schema({
   credit: {
     type: Number,
     required: true
+  },
+  userType: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "UserType"
   }
-
+  
 })
 
 module.exports = mongoose.model("User", UserSchema)

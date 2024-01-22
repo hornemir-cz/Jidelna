@@ -53,8 +53,7 @@ router.post('/', upload.single('cover'), async (req, res) => {
     date: new Date(req.body.date),
     servingNumber: req.body.servingNumber,
     coverImageName: fileName,
-    description: req.body.description,
-    userType: req.body.userType
+    description: req.body.description
   })
 
   try {
@@ -131,13 +130,7 @@ router.delete('/:id', async (req, res) => {
 
 async function renderNewPage(res, meal, hasError = false) {
   try {
-    const userTypes = await UserType.find({})
-    const params = {
-      userTypes: userTypes,
-      meal: meal,
-    }
-    if (hasError) params.errorMessage = 'Chyba při přidávání jídla :cry:'
-    res.render('meals/new', params)
+    res.render('meals/new', { meal: meal, hasError: hasError })
   } catch {
     res.redirect('/meals')
   }
@@ -145,13 +138,7 @@ async function renderNewPage(res, meal, hasError = false) {
 
 async function renderEditPage(res, meal, hasError = false) {
   try {
-    const userTypes = await UserType.find({})
-    const params = {
-      userTypes: userTypes,
-      meal: meal,
-    }
-    if (hasError) params.errorMessage = 'Chyba při aktualizaci jídla :cry:'
-    res.render('meals/edit', params)
+    res.render('meals/edit', { meal: meal, hasError: hasError })
   } catch {
     res.redirect('/meals')
   }

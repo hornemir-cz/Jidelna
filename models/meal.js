@@ -27,12 +27,8 @@ const mealSchema = new mongoose.Schema({
   coverImageName: {
     type: String,
     required: true
-  },
-  userType: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: "UserType"
   }
+  
 })
 
 mealSchema.virtual("coverImagePath").get(function() {
