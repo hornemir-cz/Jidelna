@@ -1,6 +1,8 @@
 # Školní systém jídelny - Frontend Only
 
-Tato webová aplikace je navrhnuta v prostředí Node.js a slouží pro správu jídelníčku ve školní jídelně. Umožňuje studentům prohlížet si nabídku pokrmů, dobíjet kredit a objednávat jídla. Aplikace používá IndexedDB/MongoDB pro ukládání dat klienta.
+Tato webová aplikace je navrhnuta v prostředí Node.js a slouží pro správu jídelníčku ve školní jídelně. Umožňuje studentům prohlížet si nabídku pokrmů, dobíjet kredit a objednávat jídla. Aplikace používá MongoDB pro ukládání dat klienta.
+
+[Odkaz na web](https://jidelna-gqqt.onrender.com/)
 
 ## Funkce
 
@@ -59,21 +61,22 @@ Díky použití tohoto přístupu jsem mohl pohodlně pracovat na různých čá
 ## Použité technologie
 
 - **Frontend:** HTML, CSS, JavaScript
-- **IndexedDB:** Pro ukládání dat klienta (nebo MongoDB)
+- **MongoDB:** Pro ukládání dat uživatele
 
 ## Instalace a spuštění
 
 1. **Stažení kódu:**
    ```bash
-   git clone hornekm@kraken.pedf.cuni.cz:/home/hornekm/public_html/Jidelna.git
+   git clone https://github.com/hornemir-cz/Jidelna.git
    ```
 
 2. **Otevření aplikace:**
-   - Testuji NodeJS
+   - lokálně:
    ```bash
-   npm run devStart
+   node server.js
    ```
-   - musím si zažádat o otevřrní portu na Krakenu
+   - popřípadě odkaz na můj web:
+  [https://jidelna-gqqt.onrender.com/](https://jidelna-gqqt.onrender.com/)
 
 ## Struktura adresáře
 
