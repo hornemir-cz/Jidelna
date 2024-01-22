@@ -100,17 +100,16 @@ router.put("/:id", async (req, res) => {
 
 // Smazání uživatele
 router.delete("/:id", async (req, res) => {
-  let user
   try {
-    user = await User.findById(req.params.id)
-    await user.remove()
-    res.redirect("/users")
-  } catch {
-    if (user == null) {
-      res.redirect("/")
+    const result = await User.deleteOne({ _id: req.params.id })
+    if (result.deletedCount > 0) {
+      res.redirect("/users")
     } else {
-      res.redirect(`/users/${user.id}`)
+      res.redirect("/users")
     }
+  } catch (error) {
+    console.error(error)
+    res.redirect(`/users/${user.id}`)
   }
 })
 

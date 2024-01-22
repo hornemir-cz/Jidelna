@@ -111,22 +111,19 @@ router.put('/:id', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
-  let meal
   try {
-    meal = await Meal.findById(req.params.id)
-    await meal.remove()
-    res.redirect('/meals')
-  } catch {
-    if (meal != null) {
-      res.render('meals/show', {
-        meal: meal,
-        errorMessage: 'Nelze odstranit jídlo',
-      })
+    const result = await Meal.deleteOne({ _id: req.params.id })
+    if (result.deletedCount > 0) {
+      res.redirect('/meals')
     } else {
       res.redirect('/meals')
     }
+  } catch (error) {
+    console.error(error)
+    res.redirect('/meals')
   }
 })
+
 
 async function renderNewPage(res, meal, hasError = false) {
   try {

@@ -75,23 +75,20 @@ router.put('/:id', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
-  let userType
-
   try {
-    userType = await UserType.findById(req.params.id)
-    await userType.remove()
-    res.redirect('/userTypes')
-  } catch {
-    if (userType != null) {
-      res.render('userTypes/show', {
-        userType: userType,
-        errorMessage: 'Nelze odstranit typ strávníka',
-      })
+    const result = await UserType.deleteOne({ _id: req.params.id });
+    if (result.deletedCount > 0) {
+      res.redirect('/userTypes');
     } else {
-      res.redirect('/userTypes')
+      res.redirect('/userTypes');
     }
+  } catch (error) {
+    console.error(error);
+    res.redirect('/userTypes');
   }
-})
+});
+
+
 
 async function renderNewPage(res, userType, hasError = false) {
   try {
